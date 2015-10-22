@@ -30,7 +30,6 @@ static NSString *kCallbackIdentifier = @"steampunkpostsviewer.com";
 
 @implementation SPPLoginViewController
 
-
 - (void)viewDidLoad {
     self.loginAPI=[SPPLoginAPI new];
     [self.webView loadRequest:[self.loginAPI oauthAuthorizeRequest]];
@@ -64,10 +63,6 @@ static NSString *kCallbackIdentifier = @"steampunkpostsviewer.com";
         return NO;
     }
     return YES;
-    
-    
-
-
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
@@ -77,14 +72,6 @@ static NSString *kCallbackIdentifier = @"steampunkpostsviewer.com";
                                           cancelButtonTitle:kCancelButtonTitle
                                           otherButtonTitles:nil];
     [alert show];
-    
 }
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection
-{
-   
-    
-
- }
 
 @end
