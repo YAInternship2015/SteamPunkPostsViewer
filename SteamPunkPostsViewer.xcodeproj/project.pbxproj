@@ -1,0 +1,814 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8D4011F81BD5A5A60000188A /* SPPData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8D4011F61BD5A5A50000188A /* SPPData.xcdatamodeld */; };
+		8D4011FE1BD5A6950000188A /* SPPPostModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D4011FD1BD5A6950000188A /* SPPPostModel.m */; };
+		8D40120F1BD651E70000188A /* SPPLoginAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D40120E1BD651E70000188A /* SPPLoginAPI.m */; };
+		8D4012151BD66D6F0000188A /* NSString+getVerifierFromRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D4012141BD66D6F0000188A /* NSString+getVerifierFromRequest.m */; };
+		8D4012181BD681A40000188A /* SPPDataAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D4012171BD681A40000188A /* SPPDataAPI.m */; };
+		8D40121F1BD6A09A0000188A /* SPPUserDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D40121E1BD6A09A0000188A /* SPPUserDataModel.m */; };
+		8D4012231BD6E0990000188A /* NSDictionary+getToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D4012221BD6E0990000188A /* NSDictionary+getToken.m */; };
+		8D87AA971BD45127000F4FA4 /* SPPDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D87AA961BD45127000F4FA4 /* SPPDataSource.m */; };
+		8D87AA9A1BD4519F000F4FA4 /* SPPDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D87AA991BD4519F000F4FA4 /* SPPDataManager.m */; };
+		8D87AAA01BD45BD5000F4FA4 /* SPPCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D87AA9F1BD45BD5000F4FA4 /* SPPCollectionViewController.m */; };
+		8D87AAA31BD45BF0000F4FA4 /* SPPTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D87AAA21BD45BF0000F4FA4 /* SPPTableViewController.m */; };
+		8D87AAAC1BD48033000F4FA4 /* SPPTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D87AAAB1BD48033000F4FA4 /* SPPTableViewCell.m */; };
+		8DA985F91BCEA18C00CD5EA4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA985F81BCEA18C00CD5EA4 /* Foundation.framework */; };
+		8DA985FB1BCEA18C00CD5EA4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA985FA1BCEA18C00CD5EA4 /* CoreGraphics.framework */; };
+		8DA985FD1BCEA18C00CD5EA4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA985FC1BCEA18C00CD5EA4 /* UIKit.framework */; };
+		8DA985FF1BCEA18C00CD5EA4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA985FE1BCEA18C00CD5EA4 /* CoreData.framework */; };
+		8DA986051BCEA18C00CD5EA4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8DA986031BCEA18C00CD5EA4 /* InfoPlist.strings */; };
+		8DA986071BCEA18C00CD5EA4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA986061BCEA18C00CD5EA4 /* main.m */; };
+		8DA9860B1BCEA18C00CD5EA4 /* SPPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA9860A1BCEA18C00CD5EA4 /* SPPAppDelegate.m */; };
+		8DA9860E1BCEA18C00CD5EA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DA9860C1BCEA18C00CD5EA4 /* Main.storyboard */; };
+		8DA986191BCEA18D00CD5EA4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DA986181BCEA18D00CD5EA4 /* Images.xcassets */; };
+		8DA986201BCEA18D00CD5EA4 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA9861F1BCEA18D00CD5EA4 /* XCTest.framework */; };
+		8DA986211BCEA18D00CD5EA4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA985F81BCEA18C00CD5EA4 /* Foundation.framework */; };
+		8DA986221BCEA18D00CD5EA4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA985FC1BCEA18C00CD5EA4 /* UIKit.framework */; };
+		8DA986231BCEA18D00CD5EA4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA985FE1BCEA18C00CD5EA4 /* CoreData.framework */; };
+		8DA9862B1BCEA18D00CD5EA4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8DA986291BCEA18D00CD5EA4 /* InfoPlist.strings */; };
+		8DA9862D1BCEA18D00CD5EA4 /* SteamPunkPostsViewerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA9862C1BCEA18D00CD5EA4 /* SteamPunkPostsViewerTests.m */; };
+		8DAA04CE1BD71B8400731FAF /* SPPNextMaxID.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DAA04CD1BD71B8400731FAF /* SPPNextMaxID.m */; };
+		8DAA04D21BD7D84C00731FAF /* SPPCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DAA04D11BD7D84C00731FAF /* SPPCollectionViewCell.m */; };
+		8DAA04DA1BD7EBD900731FAF /* SPPContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DAA04D91BD7EBD900731FAF /* SPPContainerViewController.m */; };
+		8DAA04DD1BD8645A00731FAF /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DAA04DC1BD8645A00731FAF /* placeholder.png */; };
+		8DD615DB1BD0105A0048A3A9 /* SPPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD615DA1BD0105A0048A3A9 /* SPPLoginViewController.m */; };
+		C79C5917FEB9DAF60D61C107 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 101F19EE187D7BF9653FA4FA /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8DA986241BCEA18D00CD5EA4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8DA985ED1BCEA18C00CD5EA4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DA985F41BCEA18C00CD5EA4;
+			remoteInfo = SteamPunkPostsViewer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		101F19EE187D7BF9653FA4FA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		53CA80B50F3D01DA16B044D8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		8D4011F71BD5A5A50000188A /* SPPData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SPPData.xcdatamodel; sourceTree = "<group>"; };
+		8D4011FC1BD5A6950000188A /* SPPPostModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPPostModel.h; sourceTree = "<group>"; };
+		8D4011FD1BD5A6950000188A /* SPPPostModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPPostModel.m; sourceTree = "<group>"; };
+		8D40120D1BD651E70000188A /* SPPLoginAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPLoginAPI.h; sourceTree = "<group>"; };
+		8D40120E1BD651E70000188A /* SPPLoginAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPLoginAPI.m; sourceTree = "<group>"; };
+		8D4012131BD66D6F0000188A /* NSString+getVerifierFromRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+getVerifierFromRequest.h"; sourceTree = "<group>"; };
+		8D4012141BD66D6F0000188A /* NSString+getVerifierFromRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+getVerifierFromRequest.m"; sourceTree = "<group>"; };
+		8D4012161BD681A40000188A /* SPPDataAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPDataAPI.h; sourceTree = "<group>"; };
+		8D4012171BD681A40000188A /* SPPDataAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPDataAPI.m; sourceTree = "<group>"; };
+		8D40121D1BD6A09A0000188A /* SPPUserDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPUserDataModel.h; sourceTree = "<group>"; };
+		8D40121E1BD6A09A0000188A /* SPPUserDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPUserDataModel.m; sourceTree = "<group>"; };
+		8D4012211BD6E0990000188A /* NSDictionary+getToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+getToken.h"; sourceTree = "<group>"; };
+		8D4012221BD6E0990000188A /* NSDictionary+getToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+getToken.m"; sourceTree = "<group>"; };
+		8D87AA951BD45127000F4FA4 /* SPPDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPDataSource.h; sourceTree = "<group>"; };
+		8D87AA961BD45127000F4FA4 /* SPPDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPDataSource.m; sourceTree = "<group>"; };
+		8D87AA981BD4519F000F4FA4 /* SPPDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPDataManager.h; sourceTree = "<group>"; };
+		8D87AA991BD4519F000F4FA4 /* SPPDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPDataManager.m; sourceTree = "<group>"; };
+		8D87AA9E1BD45BD5000F4FA4 /* SPPCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPCollectionViewController.h; sourceTree = "<group>"; };
+		8D87AA9F1BD45BD5000F4FA4 /* SPPCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPCollectionViewController.m; sourceTree = "<group>"; };
+		8D87AAA11BD45BF0000F4FA4 /* SPPTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPTableViewController.h; sourceTree = "<group>"; };
+		8D87AAA21BD45BF0000F4FA4 /* SPPTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPTableViewController.m; sourceTree = "<group>"; };
+		8D87AAAA1BD48033000F4FA4 /* SPPTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPTableViewCell.h; sourceTree = "<group>"; };
+		8D87AAAB1BD48033000F4FA4 /* SPPTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPTableViewCell.m; sourceTree = "<group>"; };
+		8DA985F51BCEA18C00CD5EA4 /* SteamPunkPostsViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SteamPunkPostsViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DA985F81BCEA18C00CD5EA4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8DA985FA1BCEA18C00CD5EA4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8DA985FC1BCEA18C00CD5EA4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		8DA985FE1BCEA18C00CD5EA4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		8DA986021BCEA18C00CD5EA4 /* SteamPunkPostsViewer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SteamPunkPostsViewer-Info.plist"; sourceTree = "<group>"; };
+		8DA986041BCEA18C00CD5EA4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8DA986061BCEA18C00CD5EA4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8DA986081BCEA18C00CD5EA4 /* SteamPunkPostsViewer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SteamPunkPostsViewer-Prefix.pch"; sourceTree = "<group>"; };
+		8DA986091BCEA18C00CD5EA4 /* SPPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPPAppDelegate.h; sourceTree = "<group>"; };
+		8DA9860A1BCEA18C00CD5EA4 /* SPPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPPAppDelegate.m; sourceTree = "<group>"; };
+		8DA9860D1BCEA18C00CD5EA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8DA986181BCEA18D00CD5EA4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		8DA9861E1BCEA18D00CD5EA4 /* SteamPunkPostsViewerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SteamPunkPostsViewerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DA9861F1BCEA18D00CD5EA4 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		8DA986281BCEA18D00CD5EA4 /* SteamPunkPostsViewerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SteamPunkPostsViewerTests-Info.plist"; sourceTree = "<group>"; };
+		8DA9862A1BCEA18D00CD5EA4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8DA9862C1BCEA18D00CD5EA4 /* SteamPunkPostsViewerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SteamPunkPostsViewerTests.m; sourceTree = "<group>"; };
+		8DAA04CC1BD71B8400731FAF /* SPPNextMaxID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPNextMaxID.h; sourceTree = "<group>"; };
+		8DAA04CD1BD71B8400731FAF /* SPPNextMaxID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPNextMaxID.m; sourceTree = "<group>"; };
+		8DAA04D01BD7D84C00731FAF /* SPPCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPCollectionViewCell.h; sourceTree = "<group>"; };
+		8DAA04D11BD7D84C00731FAF /* SPPCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPCollectionViewCell.m; sourceTree = "<group>"; };
+		8DAA04D81BD7EBD900731FAF /* SPPContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPContainerViewController.h; sourceTree = "<group>"; };
+		8DAA04D91BD7EBD900731FAF /* SPPContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPContainerViewController.m; sourceTree = "<group>"; };
+		8DAA04DC1BD8645A00731FAF /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
+		8DD615D91BD0105A0048A3A9 /* SPPLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPLoginViewController.h; sourceTree = "<group>"; };
+		8DD615DA1BD0105A0048A3A9 /* SPPLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPLoginViewController.m; sourceTree = "<group>"; };
+		F3E8BBBBAFECF5DCFB54A8DE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8DA985F21BCEA18C00CD5EA4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DA985FB1BCEA18C00CD5EA4 /* CoreGraphics.framework in Frameworks */,
+				8DA985FF1BCEA18C00CD5EA4 /* CoreData.framework in Frameworks */,
+				8DA985FD1BCEA18C00CD5EA4 /* UIKit.framework in Frameworks */,
+				8DA985F91BCEA18C00CD5EA4 /* Foundation.framework in Frameworks */,
+				C79C5917FEB9DAF60D61C107 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DA9861B1BCEA18D00CD5EA4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DA986201BCEA18D00CD5EA4 /* XCTest.framework in Frameworks */,
+				8DA986231BCEA18D00CD5EA4 /* CoreData.framework in Frameworks */,
+				8DA986221BCEA18D00CD5EA4 /* UIKit.framework in Frameworks */,
+				8DA986211BCEA18D00CD5EA4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		052C00E46ACD01E0D76B0D8A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F3E8BBBBAFECF5DCFB54A8DE /* Pods.debug.xcconfig */,
+				53CA80B50F3D01DA16B044D8 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8D0CED591BD3DA170014EFEF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8D4012201BD6A0AB0000188A /* UserDataModel */,
+				8D4012091BD64F9A0000188A /* PostModel */,
+				8DAA04CF1BD71BD600731FAF /* NextMaxIDModel */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		8D4012051BD64E860000188A /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				8D0CED591BD3DA170014EFEF /* Models */,
+				8D40120A1BD650610000188A /* DataManager */,
+				8DAA04CA1BD6EAF700731FAF /* DataSource */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		8D4012061BD64EBF0000188A /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				8D87AA9E1BD45BD5000F4FA4 /* SPPCollectionViewController.h */,
+				8D87AA9F1BD45BD5000F4FA4 /* SPPCollectionViewController.m */,
+			);
+			name = Collection;
+			sourceTree = "<group>";
+		};
+		8D4012071BD64EE00000188A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				8DD615D91BD0105A0048A3A9 /* SPPLoginViewController.h */,
+				8DD615DA1BD0105A0048A3A9 /* SPPLoginViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		8D4012081BD64EE80000188A /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				8D87AAA11BD45BF0000F4FA4 /* SPPTableViewController.h */,
+				8D87AAA21BD45BF0000F4FA4 /* SPPTableViewController.m */,
+			);
+			name = Table;
+			sourceTree = "<group>";
+		};
+		8D4012091BD64F9A0000188A /* PostModel */ = {
+			isa = PBXGroup;
+			children = (
+				8D4011FC1BD5A6950000188A /* SPPPostModel.h */,
+				8D4011FD1BD5A6950000188A /* SPPPostModel.m */,
+			);
+			name = PostModel;
+			sourceTree = "<group>";
+		};
+		8D40120A1BD650610000188A /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				8D87AA981BD4519F000F4FA4 /* SPPDataManager.h */,
+				8D87AA991BD4519F000F4FA4 /* SPPDataManager.m */,
+			);
+			name = DataManager;
+			sourceTree = "<group>";
+		};
+		8D40120C1BD650AE0000188A /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				8DA986091BCEA18C00CD5EA4 /* SPPAppDelegate.h */,
+				8DA9860A1BCEA18C00CD5EA4 /* SPPAppDelegate.m */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		8D4012111BD6521D0000188A /* APIClients */ = {
+			isa = PBXGroup;
+			children = (
+				8D4012191BD681A90000188A /* DataAPI */,
+				8D4012121BD652320000188A /* LoginAPI */,
+			);
+			name = APIClients;
+			sourceTree = "<group>";
+		};
+		8D4012121BD652320000188A /* LoginAPI */ = {
+			isa = PBXGroup;
+			children = (
+				8D40120D1BD651E70000188A /* SPPLoginAPI.h */,
+				8D40120E1BD651E70000188A /* SPPLoginAPI.m */,
+			);
+			name = LoginAPI;
+			sourceTree = "<group>";
+		};
+		8D4012191BD681A90000188A /* DataAPI */ = {
+			isa = PBXGroup;
+			children = (
+				8D4012161BD681A40000188A /* SPPDataAPI.h */,
+				8D4012171BD681A40000188A /* SPPDataAPI.m */,
+			);
+			name = DataAPI;
+			sourceTree = "<group>";
+		};
+		8D4012201BD6A0AB0000188A /* UserDataModel */ = {
+			isa = PBXGroup;
+			children = (
+				8D40121D1BD6A09A0000188A /* SPPUserDataModel.h */,
+				8D40121E1BD6A09A0000188A /* SPPUserDataModel.m */,
+			);
+			name = UserDataModel;
+			sourceTree = "<group>";
+		};
+		8D87AAA41BD45BFF000F4FA4 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8D4012081BD64EE80000188A /* Table */,
+				8D4012071BD64EE00000188A /* Login */,
+				8D4012061BD64EBF0000188A /* Collection */,
+				8DAA04DB1BD7EBE300731FAF /* Container */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		8D87AAA91BD47FF8000F4FA4 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8DAA04D41BD7D85F00731FAF /* TableCells */,
+				8DAA04D31BD7D85200731FAF /* CollectionCells */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		8DA985EC1BCEA18C00CD5EA4 = {
+			isa = PBXGroup;
+			children = (
+				8DA986001BCEA18C00CD5EA4 /* SteamPunkPostsViewer */,
+				8DA986261BCEA18D00CD5EA4 /* SteamPunkPostsViewerTests */,
+				8DA985F71BCEA18C00CD5EA4 /* Frameworks */,
+				8DA985F61BCEA18C00CD5EA4 /* Products */,
+				052C00E46ACD01E0D76B0D8A /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		8DA985F61BCEA18C00CD5EA4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DA985F51BCEA18C00CD5EA4 /* SteamPunkPostsViewer.app */,
+				8DA9861E1BCEA18D00CD5EA4 /* SteamPunkPostsViewerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8DA985F71BCEA18C00CD5EA4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8DA985F81BCEA18C00CD5EA4 /* Foundation.framework */,
+				8DA985FA1BCEA18C00CD5EA4 /* CoreGraphics.framework */,
+				8DA985FC1BCEA18C00CD5EA4 /* UIKit.framework */,
+				8DA985FE1BCEA18C00CD5EA4 /* CoreData.framework */,
+				8DA9861F1BCEA18D00CD5EA4 /* XCTest.framework */,
+				101F19EE187D7BF9653FA4FA /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8DA986001BCEA18C00CD5EA4 /* SteamPunkPostsViewer */ = {
+			isa = PBXGroup;
+			children = (
+				8D4012111BD6521D0000188A /* APIClients */,
+				8D40120C1BD650AE0000188A /* AppDelegate */,
+				8D87AAA91BD47FF8000F4FA4 /* Cells */,
+				8D87AAA41BD45BFF000F4FA4 /* Controllers */,
+				8D4012051BD64E860000188A /* Data */,
+				8DA9860C1BCEA18C00CD5EA4 /* Main.storyboard */,
+				8DAA04DC1BD8645A00731FAF /* placeholder.png */,
+				8DAA04CB1BD6FA3600731FAF /* Categories */,
+				8DA986011BCEA18C00CD5EA4 /* Supporting Files */,
+			);
+			path = SteamPunkPostsViewer;
+			sourceTree = "<group>";
+		};
+		8DA986011BCEA18C00CD5EA4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8DA986181BCEA18D00CD5EA4 /* Images.xcassets */,
+				8DA986021BCEA18C00CD5EA4 /* SteamPunkPostsViewer-Info.plist */,
+				8DA986081BCEA18C00CD5EA4 /* SteamPunkPostsViewer-Prefix.pch */,
+				8DA986031BCEA18C00CD5EA4 /* InfoPlist.strings */,
+				8DA986061BCEA18C00CD5EA4 /* main.m */,
+				8D4011F61BD5A5A50000188A /* SPPData.xcdatamodeld */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8DA986261BCEA18D00CD5EA4 /* SteamPunkPostsViewerTests */ = {
+			isa = PBXGroup;
+			children = (
+				8DA9862C1BCEA18D00CD5EA4 /* SteamPunkPostsViewerTests.m */,
+				8DA986271BCEA18D00CD5EA4 /* Supporting Files */,
+			);
+			path = SteamPunkPostsViewerTests;
+			sourceTree = "<group>";
+		};
+		8DA986271BCEA18D00CD5EA4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8DA986281BCEA18D00CD5EA4 /* SteamPunkPostsViewerTests-Info.plist */,
+				8DA986291BCEA18D00CD5EA4 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8DAA04CA1BD6EAF700731FAF /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				8D87AA951BD45127000F4FA4 /* SPPDataSource.h */,
+				8D87AA961BD45127000F4FA4 /* SPPDataSource.m */,
+			);
+			name = DataSource;
+			sourceTree = "<group>";
+		};
+		8DAA04CB1BD6FA3600731FAF /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				8D4012131BD66D6F0000188A /* NSString+getVerifierFromRequest.h */,
+				8D4012141BD66D6F0000188A /* NSString+getVerifierFromRequest.m */,
+				8D4012211BD6E0990000188A /* NSDictionary+getToken.h */,
+				8D4012221BD6E0990000188A /* NSDictionary+getToken.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		8DAA04CF1BD71BD600731FAF /* NextMaxIDModel */ = {
+			isa = PBXGroup;
+			children = (
+				8DAA04CC1BD71B8400731FAF /* SPPNextMaxID.h */,
+				8DAA04CD1BD71B8400731FAF /* SPPNextMaxID.m */,
+			);
+			name = NextMaxIDModel;
+			sourceTree = "<group>";
+		};
+		8DAA04D31BD7D85200731FAF /* CollectionCells */ = {
+			isa = PBXGroup;
+			children = (
+				8DAA04D01BD7D84C00731FAF /* SPPCollectionViewCell.h */,
+				8DAA04D11BD7D84C00731FAF /* SPPCollectionViewCell.m */,
+			);
+			name = CollectionCells;
+			sourceTree = "<group>";
+		};
+		8DAA04D41BD7D85F00731FAF /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				8D87AAAA1BD48033000F4FA4 /* SPPTableViewCell.h */,
+				8D87AAAB1BD48033000F4FA4 /* SPPTableViewCell.m */,
+			);
+			name = TableCells;
+			sourceTree = "<group>";
+		};
+		8DAA04DB1BD7EBE300731FAF /* Container */ = {
+			isa = PBXGroup;
+			children = (
+				8DAA04D81BD7EBD900731FAF /* SPPContainerViewController.h */,
+				8DAA04D91BD7EBD900731FAF /* SPPContainerViewController.m */,
+			);
+			name = Container;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8DA985F41BCEA18C00CD5EA4 /* SteamPunkPostsViewer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8DA986301BCEA18D00CD5EA4 /* Build configuration list for PBXNativeTarget "SteamPunkPostsViewer" */;
+			buildPhases = (
+				2CC4DC9CFF639E3FAE3ACAEF /* Check Pods Manifest.lock */,
+				8DA985F11BCEA18C00CD5EA4 /* Sources */,
+				8DA985F21BCEA18C00CD5EA4 /* Frameworks */,
+				8DA985F31BCEA18C00CD5EA4 /* Resources */,
+				E5CA93329B1251B64368C0A7 /* Embed Pods Frameworks */,
+				DED1FF38A6F18B2011A4DD56 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SteamPunkPostsViewer;
+			productName = SteamPunkPostsViewer;
+			productReference = 8DA985F51BCEA18C00CD5EA4 /* SteamPunkPostsViewer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8DA9861D1BCEA18D00CD5EA4 /* SteamPunkPostsViewerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8DA986331BCEA18D00CD5EA4 /* Build configuration list for PBXNativeTarget "SteamPunkPostsViewerTests" */;
+			buildPhases = (
+				8DA9861A1BCEA18D00CD5EA4 /* Sources */,
+				8DA9861B1BCEA18D00CD5EA4 /* Frameworks */,
+				8DA9861C1BCEA18D00CD5EA4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8DA986251BCEA18D00CD5EA4 /* PBXTargetDependency */,
+			);
+			name = SteamPunkPostsViewerTests;
+			productName = SteamPunkPostsViewerTests;
+			productReference = 8DA9861E1BCEA18D00CD5EA4 /* SteamPunkPostsViewerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8DA985ED1BCEA18C00CD5EA4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = SPP;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Tykhonkov Ilya";
+				TargetAttributes = {
+					8DA9861D1BCEA18D00CD5EA4 = {
+						TestTargetID = 8DA985F41BCEA18C00CD5EA4;
+					};
+				};
+			};
+			buildConfigurationList = 8DA985F01BCEA18C00CD5EA4 /* Build configuration list for PBXProject "SteamPunkPostsViewer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8DA985EC1BCEA18C00CD5EA4;
+			productRefGroup = 8DA985F61BCEA18C00CD5EA4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8DA985F41BCEA18C00CD5EA4 /* SteamPunkPostsViewer */,
+				8DA9861D1BCEA18D00CD5EA4 /* SteamPunkPostsViewerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8DA985F31BCEA18C00CD5EA4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DA986191BCEA18D00CD5EA4 /* Images.xcassets in Resources */,
+				8DAA04DD1BD8645A00731FAF /* placeholder.png in Resources */,
+				8DA986051BCEA18C00CD5EA4 /* InfoPlist.strings in Resources */,
+				8DA9860E1BCEA18C00CD5EA4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DA9861C1BCEA18D00CD5EA4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DA9862B1BCEA18D00CD5EA4 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2CC4DC9CFF639E3FAE3ACAEF /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DED1FF38A6F18B2011A4DD56 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E5CA93329B1251B64368C0A7 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8DA985F11BCEA18C00CD5EA4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DA9860B1BCEA18C00CD5EA4 /* SPPAppDelegate.m in Sources */,
+				8D87AAA31BD45BF0000F4FA4 /* SPPTableViewController.m in Sources */,
+				8D4012181BD681A40000188A /* SPPDataAPI.m in Sources */,
+				8D40120F1BD651E70000188A /* SPPLoginAPI.m in Sources */,
+				8D87AA9A1BD4519F000F4FA4 /* SPPDataManager.m in Sources */,
+				8D4012231BD6E0990000188A /* NSDictionary+getToken.m in Sources */,
+				8D4012151BD66D6F0000188A /* NSString+getVerifierFromRequest.m in Sources */,
+				8D87AAA01BD45BD5000F4FA4 /* SPPCollectionViewController.m in Sources */,
+				8D87AA971BD45127000F4FA4 /* SPPDataSource.m in Sources */,
+				8D40121F1BD6A09A0000188A /* SPPUserDataModel.m in Sources */,
+				8D4011F81BD5A5A60000188A /* SPPData.xcdatamodeld in Sources */,
+				8D4011FE1BD5A6950000188A /* SPPPostModel.m in Sources */,
+				8DA986071BCEA18C00CD5EA4 /* main.m in Sources */,
+				8DAA04D21BD7D84C00731FAF /* SPPCollectionViewCell.m in Sources */,
+				8DAA04DA1BD7EBD900731FAF /* SPPContainerViewController.m in Sources */,
+				8DD615DB1BD0105A0048A3A9 /* SPPLoginViewController.m in Sources */,
+				8DAA04CE1BD71B8400731FAF /* SPPNextMaxID.m in Sources */,
+				8D87AAAC1BD48033000F4FA4 /* SPPTableViewCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DA9861A1BCEA18D00CD5EA4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DA9862D1BCEA18D00CD5EA4 /* SteamPunkPostsViewerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8DA986251BCEA18D00CD5EA4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8DA985F41BCEA18C00CD5EA4 /* SteamPunkPostsViewer */;
+			targetProxy = 8DA986241BCEA18D00CD5EA4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8DA986031BCEA18C00CD5EA4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8DA986041BCEA18C00CD5EA4 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8DA9860C1BCEA18C00CD5EA4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8DA9860D1BCEA18C00CD5EA4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8DA986291BCEA18D00CD5EA4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8DA9862A1BCEA18D00CD5EA4 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8DA9862E1BCEA18D00CD5EA4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		8DA9862F1BCEA18D00CD5EA4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8DA986311BCEA18D00CD5EA4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F3E8BBBBAFECF5DCFB54A8DE /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SteamPunkPostsViewer/SteamPunkPostsViewer-Prefix.pch";
+				INFOPLIST_FILE = "SteamPunkPostsViewer/SteamPunkPostsViewer-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		8DA986321BCEA18D00CD5EA4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53CA80B50F3D01DA16B044D8 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SteamPunkPostsViewer/SteamPunkPostsViewer-Prefix.pch";
+				INFOPLIST_FILE = "SteamPunkPostsViewer/SteamPunkPostsViewer-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		8DA986341BCEA18D00CD5EA4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SteamPunkPostsViewer.app/SteamPunkPostsViewer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SteamPunkPostsViewer/SteamPunkPostsViewer-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SteamPunkPostsViewerTests/SteamPunkPostsViewerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		8DA986351BCEA18D00CD5EA4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SteamPunkPostsViewer.app/SteamPunkPostsViewer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SteamPunkPostsViewer/SteamPunkPostsViewer-Prefix.pch";
+				INFOPLIST_FILE = "SteamPunkPostsViewerTests/SteamPunkPostsViewerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8DA985F01BCEA18C00CD5EA4 /* Build configuration list for PBXProject "SteamPunkPostsViewer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DA9862E1BCEA18D00CD5EA4 /* Debug */,
+				8DA9862F1BCEA18D00CD5EA4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8DA986301BCEA18D00CD5EA4 /* Build configuration list for PBXNativeTarget "SteamPunkPostsViewer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DA986311BCEA18D00CD5EA4 /* Debug */,
+				8DA986321BCEA18D00CD5EA4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8DA986331BCEA18D00CD5EA4 /* Build configuration list for PBXNativeTarget "SteamPunkPostsViewerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DA986341BCEA18D00CD5EA4 /* Debug */,
+				8DA986351BCEA18D00CD5EA4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8D4011F61BD5A5A50000188A /* SPPData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8D4011F71BD5A5A50000188A /* SPPData.xcdatamodel */,
+			);
+			currentVersion = 8D4011F71BD5A5A50000188A /* SPPData.xcdatamodel */;
+			path = SPPData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 8DA985ED1BCEA18C00CD5EA4 /* Project object */;
+}

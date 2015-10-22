@@ -1,0 +1,76 @@
+//
+//  SPPLoginAPI.m
+//  SteamPunkPostsViewer
+//
+//  Created by Elias Tihonkov on 20.10.15.
+//  Copyright (c) 2015 Tykhonkov Ilya. All rights reserved.
+//
+
+#import "SPPLoginAPI.h"
+#import "AFNetworking.h"
+#import "SPPUserDataModel.h"
+#import "SPPDataManager.h"
+#import <MagicalRecord/MagicalRecord.h>
+
+static NSString *kClientID = @"33bc09c63c934786a26cde59f150b768";
+static NSString *kClientSecret = @"3e9ef127f8554d5f8f608eb1a16152da";
+static NSString *callbackURL = @"http://steampunkpostsviewer.com/";
+static NSString *kBaseURL= @"https://api.instagram.com/";
+static NSString *oauthRequestURL = @"https://api.instagram.com/oauth/authorize/?client_id=%@&redirect_uri=%@&response_type=code";
+static NSString *kBaseURLWithOauthAndToken = @"https://api.instagram.com/oauth/access_token";
+static NSString *kUser = @"user";
+
+@interface SPPLoginAPI ()
+
+
+@end
+
+
+
+@implementation SPPLoginAPI
+
+- (NSURLRequest*)oauthAuthorizeRequest {
+    NSString *url = [NSString stringWithFormat:oauthRequestURL ,kClientID,callbackURL];
+    return [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+}
+
+
+- (void)requestUserDataWith:(NSString*)verifier{
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"client_id" : kClientID,
+                                 @"client_secret" : kClientSecret,
+                                 @"grant_type" : @"authorization_code",
+                                 @"redirect_uri" : callbackURL,
+                                 @"code" : verifier};
+    [manager POST:kBaseURLWithOauthAndToken parameters:parameters                        success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%@", responseObject);
+        [self saveUserDataAndLoadFirstPackOfPosts:responseObject];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+}
+
+
+- (void)saveUserDataAndLoadFirstPackOfPosts:(NSDictionary *)userData{
+   __block SPPUserDataModel *newUser = nil;
+    [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext){
+        NSArray *existedUsers = [SPPUserDataModel MR_findAllWithPredicate:
+            [NSPredicate predicateWithFormat:@"accessToken == %@", userData[@"access_token"]]];
+        if ([existedUsers count]>0) {
+            newUser=existedUsers[0];
+        } else {
+            newUser=[SPPUserDataModel MR_createEntityInContext:localContext];
+        }
+            newUser.accessToken = userData[@"access_token"];
+            newUser.userID = userData[kUser][@"id"];
+            newUser.username = userData [kUser][@"username"];
+            newUser.fullName = userData [kUser][@"full_name"];
+            newUser.profilePicture = userData [kUser][@"profile_picture"];
+        
+    }];
+    [[SPPDataManager sharedManager] loadRecentPostsAndSetupNextMaxID];
+
+}
+
+@end

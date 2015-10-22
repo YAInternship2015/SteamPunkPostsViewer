@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="12F2560" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="SPPNextMaxID" representedClassName="SPPNextMaxID" syncable="YES">
+        <attribute name="nextMaxID" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="SPPPostModel" representedClassName="SPPPostModel" syncable="YES">
+        <attribute name="captionText" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="postID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="SPPUserDataModel" representedClassName="SPPUserDataModel" syncable="YES">
+        <attribute name="accessToken" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fullName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="profilePicture" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="SPPPostModel" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="SPPUserDataModel" positionX="70" positionY="-18" width="128" height="118"/>
+        <element name="SPPNextMaxID" positionX="0" positionY="18" width="128" height="60"/>
+    </elements>
+</model>
