@@ -40,9 +40,6 @@ static NSString *kCancelButtonTitle = @"OK";
     [_containerView addSubview:self.tableView.view];
 }
 
-
-
-
 - (IBAction)switcher:(id)sender {
     if ([[SPPDataManager sharedManager] isAnyDataLoaded]) {
     UIViewController *fromView, *toView;
@@ -72,18 +69,5 @@ static NSString *kCancelButtonTitle = @"OK";
     }
     
 }
-
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
