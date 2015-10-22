@@ -20,20 +20,12 @@ static NSString *oauthRequestURL = @"https://api.instagram.com/oauth/authorize/?
 static NSString *kBaseURLWithOauthAndToken = @"https://api.instagram.com/oauth/access_token";
 static NSString *kUser = @"user";
 
-@interface SPPLoginAPI ()
-
-
-@end
-
-
-
 @implementation SPPLoginAPI
 
 - (NSURLRequest*)oauthAuthorizeRequest {
     NSString *url = [NSString stringWithFormat:oauthRequestURL ,kClientID,callbackURL];
     return [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
 }
-
 
 - (void)requestUserDataWith:(NSString*)verifier{
     
@@ -50,7 +42,6 @@ static NSString *kUser = @"user";
         NSLog(@"Error: %@", error);
     }];
 }
-
 
 - (void)saveUserDataAndLoadFirstPackOfPosts:(NSDictionary *)userData{
    __block SPPUserDataModel *newUser = nil;
