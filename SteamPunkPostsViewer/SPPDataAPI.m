@@ -14,7 +14,10 @@
 #import "SPPDataManager.h"
 #import "NSDictionary+getToken.h"
 
+#warning static NSString *const, и также pathString - плохое имя переменной, неясно, что это за строка
 NSString* pathString =  @"https://api.instagram.com/v1/tags/SteamPunk/media/recent";
+
+
 
 @interface SPPDataAPI ()
 
@@ -39,6 +42,7 @@ NSString* pathString =  @"https://api.instagram.com/v1/tags/SteamPunk/media/rece
     } else {
         parameters= [NSDictionary getTokenParameter];
     }
+#warning поправьте выравнивание кода
 AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
 [manager GET:pathString parameters:parameters
                            success:^(AFHTTPRequestOperation *operation, id responseObject) {

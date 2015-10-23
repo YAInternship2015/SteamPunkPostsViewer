@@ -22,6 +22,7 @@ static NSString *kAccessToken = @"access_token";
     userModel=user[0];
     }
    
+#warning в этом месте приложение крешится, если юзер не залогинен
     NSDictionary *token = @{kAccessToken:userModel.accessToken};
     
     return token;

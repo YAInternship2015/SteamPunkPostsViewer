@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#warning здесь не нужен импорт ячейки
 #import "SPPCollectionViewCell.h"
 #import "SPPDataSource.h"
 

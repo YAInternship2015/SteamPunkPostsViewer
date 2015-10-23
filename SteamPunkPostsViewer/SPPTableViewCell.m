@@ -9,6 +9,7 @@
 #import "SPPTableViewCell.h"
 #import "UIImageView+WebCache.h"
 
+#warning не нужно хранить в константах имя картинки, лучше написать категорию на UIImage и реализовать в ней метод placeholderImage
 static  NSString *kPlaceholderName = @"placeholder.png";
 
 @implementation SPPTableViewCell

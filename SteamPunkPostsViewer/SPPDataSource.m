@@ -47,6 +47,7 @@ static NSString  * kPostIdKey= @"postID";
 atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
 newIndexPath:(NSIndexPath *)newIndexPath
 {
+#warning сюда надо добавить default'ный кейс
     switch(type) {
         case NSFetchedResultsChangeInsert:
             [self.delegate insertObjectAtIndexPath:newIndexPath];

@@ -15,6 +15,7 @@ static NSString *kClientSecret = @"3e9ef127f8554d5f8f608eb1a16152da";
 static NSString *callback = @"http://steampunkpostsviewer.com/";
 static NSString *kBaseURL= @"https://api.instagram.com/";
 static NSString *TagsHostURL = @"https://api.instagram.com/v1/tags/";
+#warning все тексты надо вынести в Localizable.strings
 static NSString *kNSlogMessage = @"Can't get verifier";
 static NSString *kAllerMessage = @"You are loggedd in";
 static NSString *kAllertTitle = @"SteamPunkPostViewer";
@@ -35,6 +36,7 @@ static NSString *kCallbackIdentifier = @"steampunkpostsviewer.com";
     [self.webView loadRequest:[self.loginAPI oauthAuthorizeRequest]];
 }
 
+#warning этот метод надо удалить
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -52,6 +54,7 @@ static NSString *kCallbackIdentifier = @"steampunkpostsviewer.com";
             NSLog(@"%@",kNSlogMessage);
         }
         [webView removeFromSuperview];
+#warning зачем преобразовывать NSString в NSString?
                NSString *message = [NSString stringWithFormat:@"%@",kAllerMessage];
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:kAllertTitle

@@ -9,7 +9,6 @@
 #import "SPPCollectionViewCell.h"
 #import "UIImageView+WebCache.h"
 
-
 static  NSString *kPlaceholderName = @"placeholder.png";
 
 @implementation SPPCollectionViewCell

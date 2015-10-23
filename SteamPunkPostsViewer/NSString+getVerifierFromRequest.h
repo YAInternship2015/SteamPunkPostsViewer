@@ -10,6 +10,7 @@
 
 @interface NSString (getVerifierFromRequest)
 
+#warning verifierFromRequest:. Get в именах методов крайне редко используются. Это же касается категории на NSDictionary
 + (NSString*)getVerifierFromRequest:(NSURLRequest *) request;
 
 @end

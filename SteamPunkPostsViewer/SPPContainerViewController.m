@@ -11,6 +11,7 @@
 #import "SPPCollectionViewController.h"
 #import "SPPDataManager.h"
 
+#warning тексты надо перенести в Localizable.strings
 static NSString *kAllerMessage = @"First load some posts";
 static NSString *kAllertTitle = @"SteamPunkPostViewer";
 static NSString *kCancelButtonTitle = @"OK";
@@ -40,8 +41,10 @@ static NSString *kCancelButtonTitle = @"OK";
     [_containerView addSubview:self.tableView.view];
 }
 
+#warning плохое имя метода
 - (IBAction)switcher:(id)sender {
     if ([[SPPDataManager sharedManager] isAnyDataLoaded]) {
+#warning fromViewController, toViewController
     UIViewController *fromView, *toView;
     if ([self.tableView.view isDescendantOfView: self.view])   {
         fromView = self.tableView;
@@ -58,6 +61,7 @@ static NSString *kCancelButtonTitle = @"OK";
                             completion:nil];
 #warning Сделал этот Aller как временную меру из за бага загрузки постов в пустом CollectionView, как разберусь в чем причина и устраню, уберу этот Aller.
         } else {
+#warning конвертируем строку в строку
         NSString *message = [NSString stringWithFormat:@"%@",kAllerMessage];
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:kAllertTitle

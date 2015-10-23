@@ -11,6 +11,7 @@
 
 @interface SPPTableViewCell : UITableViewCell
 
+#warning эти свойства не надо показывать в *.h, перенесите их в *.m
 @property (strong, nonatomic) IBOutlet UIImageView *postImageView;
 
 @property (strong, nonatomic) IBOutlet UILabel *postCaptionText;

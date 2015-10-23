@@ -9,14 +9,19 @@
 #import "SPPCollectionViewController.h"
 
 static NSString *reuseCellIdentifier = @"SPPCollectionCell";
+#warning текст в Localizable.strings
 static NSString *kMessageLableText = @"Pull down to refresh.";
+#warning формат в категорию NSDateFormatter
 static NSString *kDateFormat = @"MMM d, h:mm a";
+#warning шрифт в категорию UIFont
 static NSString *kFontName = @"AppleSDGothicNeo-SemiBold";
+#warning текст в Localizable.strings
 static NSString *kTitle = @"Last update: %@";
 
 
 @interface SPPCollectionViewController ()
 
+#warning плохое имя свойства
 @property (strong,nonatomic) SPPDataSource *dataInstance;
 
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
@@ -45,6 +50,7 @@ static NSString *kTitle = @"Last update: %@";
                                                                            forIndexPath:indexPath];
     
     [cell setupCell:[self.dataInstance postAtIndex:indexPath]];
+#warning цифра 1 должна быть в константах
     if (indexPath.row == ([self.dataInstance numberOfPostsInSection:0] - 1))    {
         [self.dataInstance requestPostsToBottom];
     }
@@ -54,6 +60,7 @@ static NSString *kTitle = @"Last update: %@";
 
 
 -(void) insertObjectAtIndexPath: (NSIndexPath *) newIndexPath{
+#warning в этом месте приложение крешится в режиме с collectionView, когда добавляются новые айтемы
     [self.collectionView insertItemsAtIndexPaths:@[newIndexPath]];
 }
 
@@ -64,6 +71,7 @@ static NSString *kTitle = @"Last update: %@";
     [self.collectionView reloadData];
 }
 
+#warning плохое имя метода
 - (void)initeatePullToRefresh {
     self.refreshControl = [[UIRefreshControl alloc] init];
     self.refreshControl.backgroundColor = [UIColor purpleColor];

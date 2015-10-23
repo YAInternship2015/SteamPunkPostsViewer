@@ -82,6 +82,7 @@ static NSString const *kData = @"data";
 
 - (void)saveNextMaxID:(id)loadedData {
     SPPNextMaxID *updateMaxID = [SPPNextMaxID MR_findFirst];
+#warning строка updateMaxID.nextMaxID = loadedData[@"pagination"][@"next_max_id"]; дублируется дважды. Ее можно выполнить один раз после if-else
     if (updateMaxID) {
     updateMaxID.nextMaxID = loadedData[@"pagination"][@"next_max_id"];
     } else {

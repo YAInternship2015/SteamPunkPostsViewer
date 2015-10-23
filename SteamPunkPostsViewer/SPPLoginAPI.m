@@ -37,6 +37,7 @@ static NSString *kUser = @"user";
                                  @"code" : verifier};
     [manager POST:kBaseURLWithOauthAndToken parameters:parameters                        success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%@", responseObject);
+#warning здесь нужен weakSelf
         [self saveUserDataAndLoadFirstPackOfPosts:responseObject];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
@@ -48,11 +49,13 @@ static NSString *kUser = @"user";
     [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext){
         NSArray *existedUsers = [SPPUserDataModel MR_findAllWithPredicate:
             [NSPredicate predicateWithFormat:@"accessToken == %@", userData[@"access_token"]]];
+#warning знаки "<", ">", "=" надо выделять пробелами с обоих сторон
         if ([existedUsers count]>0) {
             newUser=existedUsers[0];
         } else {
             newUser=[SPPUserDataModel MR_createEntityInContext:localContext];
         }
+#warning выравнивание "поехало"
             newUser.accessToken = userData[@"access_token"];
             newUser.userID = userData[kUser][@"id"];
             newUser.username = userData [kUser][@"username"];

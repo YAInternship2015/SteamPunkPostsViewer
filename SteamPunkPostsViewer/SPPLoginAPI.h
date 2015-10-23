@@ -9,11 +9,12 @@
 
 #import <Foundation/Foundation.h>
 
-
+#warning лучше SPPLoginAPIClient
 @interface SPPLoginAPI : NSObject
 
 
 - (NSURLRequest*)oauthAuthorizeRequest;
+#warning requestUserDataWithVerifier:
 - (void)requestUserDataWith:(NSString*)verifier;
 
 @end

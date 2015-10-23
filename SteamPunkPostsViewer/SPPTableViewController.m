@@ -9,10 +9,15 @@
 #import "SPPTableViewController.h"
 
 static NSString *reuseCellIdentifier = @"SPPTableCell";
+#warning текст надо перенести в Localizable.strings
 static NSString *kMessageLableText = @"Pull down to refresh.";
+#warning формат надо перенести в категорию NSDateFormatter, в которой будет создаваться форматтер с этим форматом
 static NSString *kDateFormat = @"MMM d, h:mm a";
+#warning имя шрифта и резмер надо перенести в категорию UIFont
 static NSString *kFontName = @"AppleSDGothicNeo-SemiBold";
+#warning текст надо перенести в Localizable.strings
 static NSString *kTitle = @"Last update: %@";
+#warning из имени не ясно, к чему относится эта константа
 static NSInteger kNumberOfLines = 0;
 static NSInteger kFontSize = 40;
 
@@ -50,6 +55,7 @@ static NSInteger kFontSize = 40;
     
     // metod  for loading content in cell
     [cell setupCell:[self.dataInstance postAtIndex:indexPath]];
+#warning цифру 1 надо вынести в константы
     if (indexPath.row == ([self.dataInstance numberOfPostsInSection:0] - 1))    {
         [self.dataInstance requestPostsToBottom];
     }
@@ -93,6 +99,7 @@ static NSInteger kFontSize = 40;
     [self.tableView reloadData];
 }
 
+#warning плохое имя метода
 - (void)initeatePullToRefresh {
     
     self.refreshControl = [[UIRefreshControl alloc] init];
