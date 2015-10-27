@@ -32,6 +32,7 @@ static NSString *kUser = @"user";
     [manager POST:kBaseURLWithOauthAndToken parameters:parameters                        success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%@", responseObject);
 //#warning здесь нужен weakSelf
+#warning weakSelf объявляется перед блоком, иначе смысла не имеет. Разберитесь с управлением памятью в блоках, этот вопрос может вам попасться на собеседовании
          __weak typeof(self) weakSelf = self;
         [weakSelf saveUserDataAndLoadFirstPackOfPosts:responseObject];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -43,6 +44,7 @@ static NSString *kUser = @"user";
    __block SPPUserDataModel *newUser = nil;
     [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext){
         NSArray *existedUsers = [SPPUserDataModel MR_findAllWithPredicate:
+#warning съехало выравнивание
             [NSPredicate predicateWithFormat:@"accessToken == %@", userData[@"access_token"]]];
 //#warning знаки "<", ">", "=" надо выделять пробелами с обоих сторон
         if ([existedUsers count] > 0) {
