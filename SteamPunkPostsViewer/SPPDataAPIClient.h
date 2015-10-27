@@ -9,6 +9,6 @@ typedef void (^SPPDataAPIClientBlock)(id responseObject);
 @interface SPPDataAPIClient : NSObject
 
 + (SPPDataAPIClient *)sharedManager;
-#warning не хватает пробела после "-", и также тип блока надо объявлять через typedef. Еще стоит отметить, что блоки предпочтительнее делать идут последними параметрами. И на счет NextMaxID:(BOOL)boolIdentifier - NextMaxID звучит как число или строка, но никак не bool, переименуйте параметр, чтобы было понятно, что он значит
+#warning снова то же замечание - haveUseMaxIDFromeCoreDataInRequest: и дальше BOOL. Лучше как-то вроде. Я тут попытался вникнуть, параметр влияет на то, грузится первая страница или следующие. Так вот, лучше вместо одного метода сделать два, loadPostsFirstPageWithCompletionBlock: и loadPostsNextPageWithCompletionBlock:
 - (void)haveUseMaxIDFromeCoreDataInRequest:(BOOL)boolIdentifier andLoadPostsWithCompletionBlock:(SPPDataAPIClientBlock)completion;
 @end

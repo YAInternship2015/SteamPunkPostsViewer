@@ -93,6 +93,7 @@ static NSInteger const kMessageLableNumberOfLinesInText = 0;
 }
 
 //#warning плохое имя метода
+#warning достаточно просто setupRefreshControl
 - (void)setupAndAddRefreshControll {
     self.refreshControl = [[UIRefreshControl alloc] init];
     self.refreshControl.backgroundColor = [UIColor purpleColor];

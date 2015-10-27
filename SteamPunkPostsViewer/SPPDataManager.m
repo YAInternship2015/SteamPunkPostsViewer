@@ -32,6 +32,7 @@ static NSString *const kData = @"data";
 - (void)loadRecentPosts {
    SPPDataAPIClient *dataAPIClient = [SPPDataAPIClient new];
     [dataAPIClient haveUseMaxIDFromeCoreDataInRequest:NO andLoadPostsWithCompletionBlock:^(id responseObject) {
+#warning во всех следующих методах с блоками weakSelf должен быть объявлен перед блоком
         __weak typeof(self) weakSelf = self;
         [weakSelf saveDownloadedPosts:responseObject];
     }];

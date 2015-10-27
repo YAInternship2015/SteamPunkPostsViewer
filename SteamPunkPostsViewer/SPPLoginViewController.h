@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-
+#warning зачем здесь это?
 @class SPPPostModel;
 
 @interface SPPLoginViewController : UIViewController<UIWebViewDelegate>
