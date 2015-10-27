@@ -17,6 +17,5 @@ typedef void (^SPPUserDataBlock)(id userData);
 - (void)loadRecentPosts;
 - (void)loadRecentPostsAndSetupNextMaxID;
 - (void)loadOldPosts;
-- (BOOL)isAnyDataLoaded;
 
 @end
