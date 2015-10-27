@@ -8,15 +8,19 @@
 
 #import "SPPCollectionViewCell.h"
 #import "UIImageView+WebCache.h"
+#import "UIImage+SPPPlaceholder.h"
 
-static  NSString *kPlaceholderName = @"placeholder.png";
+@interface SPPCollectionViewCell ()
+
+@property (strong, nonatomic) IBOutlet UIImageView *postImageView;
+
+@end
 
 @implementation SPPCollectionViewCell
 
 - (void)setupCell:(SPPPostModel *)postModel {
     [self.postImageView sd_setImageWithURL:[NSURL URLWithString:postModel.imageURL]
-                          placeholderImage:[UIImage imageNamed:kPlaceholderName]];
-
+                          placeholderImage:[UIImage placeholderImage]];
 }
 
 @end

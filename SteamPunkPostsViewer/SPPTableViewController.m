@@ -7,121 +7,112 @@
 //
 
 #import "SPPTableViewController.h"
+#import "NSDateFormatter+SPPMyDateFormat.h"
+#import "SPPTableViewCell.h"
+#import "UIFont+SPPFontForMessages.h"
+
+
 
 static NSString *reuseCellIdentifier = @"SPPTableCell";
-#warning текст надо перенести в Localizable.strings
-static NSString *kMessageLableText = @"Pull down to refresh.";
-#warning формат надо перенести в категорию NSDateFormatter, в которой будет создаваться форматтер с этим форматом
-static NSString *kDateFormat = @"MMM d, h:mm a";
-#warning имя шрифта и резмер надо перенести в категорию UIFont
-static NSString *kFontName = @"AppleSDGothicNeo-SemiBold";
-#warning текст надо перенести в Localizable.strings
-static NSString *kTitle = @"Last update: %@";
-#warning из имени не ясно, к чему относится эта константа
-static NSInteger kNumberOfLines = 0;
-static NSInteger kFontSize = 40;
+//#warning текст надо перенести в Localizable.strings
+//#warning формат надо перенести в категорию NSDateFormatter, в которой будет создаваться форматтер с этим форматом
+//#warning имя шрифта и резмер надо перенести в категорию UIFont
+//#warning из имени не ясно, к чему относится эта константа
+#warning Создал две категории и перенес текст в Localizable.stringsLocalizable.strings, также преименовал константы и добавил  1 в константу
+static NSInteger const kNumberBeforeEndOfPostsToStartRequest = 1;
+static NSInteger const kMessageLableNumberOfLinesInText = 0;
 
 
 @interface SPPTableViewController ()
 
-@property (strong, nonatomic) SPPDataSource *dataInstance;
+@property (strong, nonatomic) SPPDataSource *dataSource;
+@property (strong, nonatomic)  UILabel *messageLabel;
 
 @end
 
 @implementation SPPTableViewController
 
 #pragma mark - TableView Methods
-- (void)viewDidLoad
-{
+
+- (void)viewDidLoad{
     [super viewDidLoad];
-   self.dataInstance =[[SPPDataSource alloc] initWithDelegate:self];
-    [self initeatePullToRefresh];
+   self.dataSource = [[SPPDataSource alloc] initWithDelegate:self];
+    [self setupAndAddRefreshControll];
     [self showMessageLabel];
  
 }
 
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [self.dataInstance numberOfPostsInSection:section];
-    
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.dataSource numberOfPostsInSection:section];
     
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SPPTableViewCell *cell = [tableView  dequeueReusableCellWithIdentifier:reuseCellIdentifier forIndexPath:indexPath];
-    
-    // metod  for loading content in cell
-    [cell setupCell:[self.dataInstance postAtIndex:indexPath]];
-#warning цифру 1 надо вынести в константы
-    if (indexPath.row == ([self.dataInstance numberOfPostsInSection:0] - 1))    {
-        [self.dataInstance requestPostsToBottom];
-    }
+    // method  for inserting content in cell
+    [cell setupCell:[self.dataSource postAtIndex:indexPath]];
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell
+                                         forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == ([self.dataSource numberOfPostsInSection:0] - kNumberBeforeEndOfPostsToStartRequest)) {
+        [self.dataSource requestPostsToBottom];
+    }
+}
+
 #pragma mark - SPPDataSourceDelegate Methods
-
-
 
 - (void)insertObjectAtIndexPath: (NSIndexPath *) newIndexPath {
     [self.tableView beginUpdates];
     [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationRight];
     [self.tableView endUpdates];
-
-    
 }
 
 - (void)dataWasChanged {
-    
     [self.tableView reloadData];
     if (self.refreshControl) {
-
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateFormat:kDateFormat];
-        NSString *title = [NSString stringWithFormat:kTitle, [formatter stringFromDate:[NSDate date]]];
+        NSString *title = [NSString stringWithFormat:NSLocalizedString(@"Last update: %@", nil), [[NSDateFormatter createDateFormatter] stringFromDate:[NSDate date]]];
         NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObject:[UIColor whiteColor]
                                                                     forKey:NSForegroundColorAttributeName];
         NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:title attributes:attrsDictionary];
         self.refreshControl.attributedTitle = attributedTitle;
-        
         [self.refreshControl endRefreshing];
     }
     
 }
 
-#pragma mark - Private Methods
-
-- (void)requestPostsToTop{
-    [self.dataInstance requestPostsToTop];
-    [self.tableView reloadData];
+- (void)changeMessageLableForMessageThatSaysToLogin {
+    _messageLabel.text = NSLocalizedString(@"Please Login First", nil);
 }
 
-#warning плохое имя метода
-- (void)initeatePullToRefresh {
-    
+#pragma mark - Private Methods
+
+- (void)requestPostsToTop {
+    [self.dataSource requestPostsToTop];
+}
+
+//#warning плохое имя метода
+- (void)setupAndAddRefreshControll {
     self.refreshControl = [[UIRefreshControl alloc] init];
     self.refreshControl.backgroundColor = [UIColor purpleColor];
     self.refreshControl.tintColor = [UIColor whiteColor];
     [self.refreshControl addTarget:self
                             action:@selector(requestPostsToTop)
                   forControlEvents:UIControlEventValueChanged];
-
 }
 
-- (void)showMessageLabel{
+- (void)showMessageLabel {
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
 
-    UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width,self.view.bounds.size.height)];
-    messageLabel.text = kMessageLableText;
-    messageLabel.textColor = [UIColor blackColor];
-    messageLabel.numberOfLines = kNumberOfLines;
-    messageLabel.textAlignment = NSTextAlignmentCenter;
-    messageLabel.font = [UIFont fontWithName:kFontName size:kFontSize];
-    [messageLabel sizeToFit];
-    self.tableView.backgroundView = messageLabel;
+    _messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width,self.view.bounds.size.height)];
+    _messageLabel.text = NSLocalizedString(@"Pull down to refresh.", nil);
+    _messageLabel.textColor = [UIColor blackColor];
+    _messageLabel.numberOfLines = kMessageLableNumberOfLinesInText;
+    _messageLabel.textAlignment = NSTextAlignmentCenter;
+    _messageLabel.font = [UIFont fontForSPPTablViewMessage];
+    [_messageLabel sizeToFit];
+    self.tableView.backgroundView = _messageLabel;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
 }
 

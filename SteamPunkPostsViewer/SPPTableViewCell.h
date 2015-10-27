@@ -10,13 +10,7 @@
 #import "SPPPostModel.h"
 
 @interface SPPTableViewCell : UITableViewCell
-
-#warning эти свойства не надо показывать в *.h, перенесите их в *.m
-@property (strong, nonatomic) IBOutlet UIImageView *postImageView;
-
-@property (strong, nonatomic) IBOutlet UILabel *postCaptionText;
-
-@property (strong, nonatomic) IBOutlet UILabel *postUserName;
+//#warning эти свойства не надо показывать в *.h, перенесите их в *.m
 
 - (void)setupCell:(SPPPostModel *)postModel;
 

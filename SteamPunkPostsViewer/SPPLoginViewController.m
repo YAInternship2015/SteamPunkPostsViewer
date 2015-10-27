@@ -7,60 +7,57 @@
 //
 
 #import "SPPLoginViewController.h"
-#import "SPPLoginAPI.h"
-#import "NSString+getVerifierFromRequest.h"
+#import "SPPLoginAPIClient.h"
+#import "NSString+SPPFetchVerifierFromRequest.h"
 
-static NSString *kClientID = @"33bc09c63c934786a26cde59f150b768";
-static NSString *kClientSecret = @"3e9ef127f8554d5f8f608eb1a16152da";
-static NSString *callback = @"http://steampunkpostsviewer.com/";
-static NSString *kBaseURL= @"https://api.instagram.com/";
-static NSString *TagsHostURL = @"https://api.instagram.com/v1/tags/";
-#warning все тексты надо вынести в Localizable.strings
-static NSString *kNSlogMessage = @"Can't get verifier";
-static NSString *kAllerMessage = @"You are loggedd in";
-static NSString *kAllertTitle = @"SteamPunkPostViewer";
-static NSString *kCancelButtonTitle = @"OK";
-static NSString *kConectionErrorTitle = @"Error wile connection";
-static NSString *kCallbackIdentifier = @"steampunkpostsviewer.com";
+
+static NSString *const kClientID = @"33bc09c63c934786a26cde59f150b768";
+static NSString *const kClientSecret = @"3e9ef127f8554d5f8f608eb1a16152da";
+static NSString *const callback = @"http://steampunkpostsviewer.com/";
+static NSString *const kBaseURL = @"https://api.instagram.com/";
+static NSString *const TagsHostURL = @"https://api.instagram.com/v1/tags/";
+static NSString *const kCallbackIdentifier = @"steampunkpostsviewer.com";
+
 
 @interface SPPLoginViewController ()
 
-@property (strong, nonatomic) SPPLoginAPI *loginAPI;
+@property (strong, nonatomic) SPPLoginAPIClient *LoginAPIClient;
+@property (strong, nonatomic) IBOutlet UIWebView *webView;
 
 @end
 
 @implementation SPPLoginViewController
 
 - (void)viewDidLoad {
-    self.loginAPI=[SPPLoginAPI new];
-    [self.webView loadRequest:[self.loginAPI oauthAuthorizeRequest]];
-}
-
-#warning этот метод надо удалить
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    self.LoginAPIClient = [SPPLoginAPIClient new];
+    [self.webView loadRequest:[self.LoginAPIClient oauthAuthorizeRequest]];
 }
 
 #pragma mark UIWebViewDelegate
 
-- (BOOL) webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
+- (BOOL) webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request
+                                                  navigationType:(UIWebViewNavigationType)navigationType {
     
     if ([[[request URL] host] isEqualToString:kCallbackIdentifier]) {
-        NSString* verifier =[NSString getVerifierFromRequest:request];
+        NSString* verifier = [NSString fetchVerifierFromRequest:request];
         if (verifier) {
-            [self.loginAPI requestUserDataWith:verifier];
+            [self.LoginAPIClient requestUserDataWithVerifier:verifier];
         } else {
-            NSLog(@"%@",kNSlogMessage);
+            UIAlertView *alertView = [[UIAlertView alloc]
+                                      initWithTitle:NSLocalizedString(@"SteamPunkPostViewer", nil)
+                                      message:NSLocalizedString(@"Can't get verifier, maybe you have a problem with your internet connection.", nil)
+                                      delegate:nil
+                                      cancelButtonTitle:NSLocalizedString(@"OK", nil)
+                                      otherButtonTitles:nil];
+            [alertView show];
         }
         [webView removeFromSuperview];
-#warning зачем преобразовывать NSString в NSString?
-               NSString *message = [NSString stringWithFormat:@"%@",kAllerMessage];
+//#warning зачем преобразовывать NSString в NSString?
         UIAlertView *alertView = [[UIAlertView alloc]
-                                  initWithTitle:kAllertTitle
-                                  message:message
+                                  initWithTitle:NSLocalizedString(@"SteamPunkPostViewer", nil)
+                                  message:NSLocalizedString(@"You are loggedd in", nil)
                                   delegate:nil
-                                  cancelButtonTitle:kCancelButtonTitle
+                                  cancelButtonTitle:NSLocalizedString(@"OK", nil)
                                   otherButtonTitles:nil];
         [alertView show];
         return NO;
@@ -68,11 +65,11 @@ static NSString *kCallbackIdentifier = @"steampunkpostsviewer.com";
     return YES;
 }
 
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:kConectionErrorTitle
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error wile connection", nil)
                                                     message:[NSString stringWithFormat:@"%@", error]
                                                    delegate:nil
-                                          cancelButtonTitle:kCancelButtonTitle
+                                          cancelButtonTitle:NSLocalizedString(@"OK", nil)
                                           otherButtonTitles:nil];
     [alert show];
 }

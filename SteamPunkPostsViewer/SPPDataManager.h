@@ -7,15 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SPPDataAPI.h"
+#import "SPPDataAPIClient.h"
 
 typedef void (^SPPUserDataBlock)(id userData);
 
 @interface SPPDataManager : NSObject
 
-+ (SPPDataManager*)sharedManager;
++ (SPPDataManager *)sharedManager;
 - (void)loadRecentPosts;
 - (void)loadRecentPostsAndSetupNextMaxID;
 - (void)loadOldPosts;
 - (BOOL)isAnyDataLoaded;
+
 @end

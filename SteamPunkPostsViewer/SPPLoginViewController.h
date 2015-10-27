@@ -7,17 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#warning зачем здесь этот импорт?
-#import "SPPAppDelegate.h"
-
 
 
 @class SPPPostModel;
 
 @interface SPPLoginViewController : UIViewController<UIWebViewDelegate>
-
-#warning этот аутлет должен быть в *.m
-@property (strong, nonatomic) IBOutlet UIWebView *webView;
-
 
 @end

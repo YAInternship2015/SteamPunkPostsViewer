@@ -1,37 +1,36 @@
 //
-//  NSDictionary+getToken.m
+//  NSDictionary+FetchTokenFromUserData.m
 //  SteamPunkPostsViewer
 //
-//  Created by Elias Tihonkov on 20.10.15.
+//  Created by Elias Tihonkov on 26.10.15.
 //  Copyright (c) 2015 Tykhonkov Ilya. All rights reserved.
 //
 
-#import "NSDictionary+getToken.h"
+#import "NSDictionary+SPPFetchTokenFromUserData.h"
 #import <MagicalRecord/MagicalRecord.h>
 #import "SPPUserDataModel.h"
 #import "SPPNextMaxID.h"
 
 static NSString *kAccessToken = @"access_token";
 
-@implementation NSDictionary (getToken)
+@implementation NSDictionary (FetchTokenFromUserData)
 
-+ (NSDictionary*)getTokenParameter {
-    NSArray *user= [SPPUserDataModel MR_findAll];
++ (NSDictionary *)fetchTokenFromUserData {
+    NSArray *user = [SPPUserDataModel MR_findAll];
     SPPUserDataModel *userModel = nil;
-    if ([user count]>0) {
-    userModel=user[0];
+    if ([user count] > 0) {
+        userModel = user[0];
     }
-   
 #warning в этом месте приложение крешится, если юзер не залогинен
+#warning Добавил проверку проверку в SPPDataSource теперь он не вызовет метода загрузки сообщений если юзер не залогинен
     NSDictionary *token = @{kAccessToken:userModel.accessToken};
-    
-    return token;
+        return token;
 }
 
-+ (NSDictionary*)getTokenAndMaxIDParameter {
-    NSDictionary *token = [self getTokenParameter];
++ (NSDictionary *)fetchTokenWithNextMaxTagID {
+    NSDictionary *token = [self fetchTokenFromUserData];
     SPPNextMaxID *maxID = [SPPNextMaxID MR_findFirst];
-
+    
     NSMutableDictionary *tokenAndMaxIDParam = [NSMutableDictionary dictionary];
     [tokenAndMaxIDParam setValue:token[kAccessToken] forKey:kAccessToken];
     [tokenAndMaxIDParam setValue:maxID.nextMaxID forKey:@"max_tag_id"];

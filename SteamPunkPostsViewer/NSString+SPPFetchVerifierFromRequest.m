@@ -1,16 +1,16 @@
 //
-//  NSString+getVerifierFromRequest.m
+//  NSString+FetchVerifierFromRequest.m
 //  SteamPunkPostsViewer
 //
-//  Created by Elias Tihonkov on 20.10.15.
+//  Created by Elias Tihonkov on 26.10.15.
 //  Copyright (c) 2015 Tykhonkov Ilya. All rights reserved.
 //
 
-#import "NSString+getVerifierFromRequest.h"
+#import "NSString+SPPFetchVerifierFromRequest.h"
 
-@implementation NSString (getVerifierFromRequest)
+@implementation NSString (FetchVerifierFromRequest)
 
-+ (NSString*)getVerifierFromRequest:(NSURLRequest *) request{
++ (NSString *)fetchVerifierFromRequest:(NSURLRequest *) request {
     NSString *verifier = nil;
     NSArray* url = [[[request URL] query] componentsSeparatedByString:@"&"];
     for (NSString* param in url) {

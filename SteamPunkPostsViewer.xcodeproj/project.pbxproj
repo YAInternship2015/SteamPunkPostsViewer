@@ -9,16 +9,19 @@
 /* Begin PBXBuildFile section */
 		8D4011F81BD5A5A60000188A /* SPPData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8D4011F61BD5A5A50000188A /* SPPData.xcdatamodeld */; };
 		8D4011FE1BD5A6950000188A /* SPPPostModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D4011FD1BD5A6950000188A /* SPPPostModel.m */; };
-		8D40120F1BD651E70000188A /* SPPLoginAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D40120E1BD651E70000188A /* SPPLoginAPI.m */; };
-		8D4012151BD66D6F0000188A /* NSString+getVerifierFromRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D4012141BD66D6F0000188A /* NSString+getVerifierFromRequest.m */; };
-		8D4012181BD681A40000188A /* SPPDataAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D4012171BD681A40000188A /* SPPDataAPI.m */; };
+		8D40120F1BD651E70000188A /* SPPLoginAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D40120E1BD651E70000188A /* SPPLoginAPIClient.m */; };
+		8D4012181BD681A40000188A /* SPPDataAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D4012171BD681A40000188A /* SPPDataAPIClient.m */; };
 		8D40121F1BD6A09A0000188A /* SPPUserDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D40121E1BD6A09A0000188A /* SPPUserDataModel.m */; };
-		8D4012231BD6E0990000188A /* NSDictionary+getToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D4012221BD6E0990000188A /* NSDictionary+getToken.m */; };
 		8D87AA971BD45127000F4FA4 /* SPPDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D87AA961BD45127000F4FA4 /* SPPDataSource.m */; };
 		8D87AA9A1BD4519F000F4FA4 /* SPPDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D87AA991BD4519F000F4FA4 /* SPPDataManager.m */; };
 		8D87AAA01BD45BD5000F4FA4 /* SPPCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D87AA9F1BD45BD5000F4FA4 /* SPPCollectionViewController.m */; };
 		8D87AAA31BD45BF0000F4FA4 /* SPPTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D87AAA21BD45BF0000F4FA4 /* SPPTableViewController.m */; };
 		8D87AAAC1BD48033000F4FA4 /* SPPTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D87AAAB1BD48033000F4FA4 /* SPPTableViewCell.m */; };
+		8D92B72A1BDEBCFF00167F7F /* UIImage+SPPPlaceholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D92B7291BDEBCFF00167F7F /* UIImage+SPPPlaceholder.m */; };
+		8D9F1B3D1BDE3C9300ABDF17 /* NSDictionary+SPPFetchTokenFromUserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D9F1B3C1BDE3C9300ABDF17 /* NSDictionary+SPPFetchTokenFromUserData.m */; };
+		8D9F1B401BDE48E000ABDF17 /* NSString+SPPFetchVerifierFromRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D9F1B3F1BDE48E000ABDF17 /* NSString+SPPFetchVerifierFromRequest.m */; };
+		8D9F1B421BDE4E9B00ABDF17 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D9F1B411BDE4E9B00ABDF17 /* Localizable.strings */; };
+		8D9FF30B1BDE6B7D00639B81 /* NSDateFormatter+SPPMyDateFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D9FF30A1BDE6B7D00639B81 /* NSDateFormatter+SPPMyDateFormat.m */; };
 		8DA985F91BCEA18C00CD5EA4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA985F81BCEA18C00CD5EA4 /* Foundation.framework */; };
 		8DA985FB1BCEA18C00CD5EA4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA985FA1BCEA18C00CD5EA4 /* CoreGraphics.framework */; };
 		8DA985FD1BCEA18C00CD5EA4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA985FC1BCEA18C00CD5EA4 /* UIKit.framework */; };
@@ -39,6 +42,7 @@
 		8DAA04DA1BD7EBD900731FAF /* SPPContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DAA04D91BD7EBD900731FAF /* SPPContainerViewController.m */; };
 		8DAA04DD1BD8645A00731FAF /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DAA04DC1BD8645A00731FAF /* placeholder.png */; };
 		8DD615DB1BD0105A0048A3A9 /* SPPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD615DA1BD0105A0048A3A9 /* SPPLoginViewController.m */; };
+		8DE0E49C1BDE707800FF7C64 /* UIFont+SPPFontForMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE0E49B1BDE707800FF7C64 /* UIFont+SPPFontForMessages.m */; };
 		C79C5917FEB9DAF60D61C107 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 101F19EE187D7BF9653FA4FA /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -58,16 +62,12 @@
 		8D4011F71BD5A5A50000188A /* SPPData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SPPData.xcdatamodel; sourceTree = "<group>"; };
 		8D4011FC1BD5A6950000188A /* SPPPostModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPPostModel.h; sourceTree = "<group>"; };
 		8D4011FD1BD5A6950000188A /* SPPPostModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPPostModel.m; sourceTree = "<group>"; };
-		8D40120D1BD651E70000188A /* SPPLoginAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPLoginAPI.h; sourceTree = "<group>"; };
-		8D40120E1BD651E70000188A /* SPPLoginAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPLoginAPI.m; sourceTree = "<group>"; };
-		8D4012131BD66D6F0000188A /* NSString+getVerifierFromRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+getVerifierFromRequest.h"; sourceTree = "<group>"; };
-		8D4012141BD66D6F0000188A /* NSString+getVerifierFromRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+getVerifierFromRequest.m"; sourceTree = "<group>"; };
-		8D4012161BD681A40000188A /* SPPDataAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPDataAPI.h; sourceTree = "<group>"; };
-		8D4012171BD681A40000188A /* SPPDataAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPDataAPI.m; sourceTree = "<group>"; };
+		8D40120D1BD651E70000188A /* SPPLoginAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPLoginAPIClient.h; sourceTree = "<group>"; };
+		8D40120E1BD651E70000188A /* SPPLoginAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPLoginAPIClient.m; sourceTree = "<group>"; };
+		8D4012161BD681A40000188A /* SPPDataAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPDataAPIClient.h; sourceTree = "<group>"; };
+		8D4012171BD681A40000188A /* SPPDataAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPDataAPIClient.m; sourceTree = "<group>"; };
 		8D40121D1BD6A09A0000188A /* SPPUserDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPUserDataModel.h; sourceTree = "<group>"; };
 		8D40121E1BD6A09A0000188A /* SPPUserDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPUserDataModel.m; sourceTree = "<group>"; };
-		8D4012211BD6E0990000188A /* NSDictionary+getToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+getToken.h"; sourceTree = "<group>"; };
-		8D4012221BD6E0990000188A /* NSDictionary+getToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+getToken.m"; sourceTree = "<group>"; };
 		8D87AA951BD45127000F4FA4 /* SPPDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPDataSource.h; sourceTree = "<group>"; };
 		8D87AA961BD45127000F4FA4 /* SPPDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPDataSource.m; sourceTree = "<group>"; };
 		8D87AA981BD4519F000F4FA4 /* SPPDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPDataManager.h; sourceTree = "<group>"; };
@@ -78,6 +78,15 @@
 		8D87AAA21BD45BF0000F4FA4 /* SPPTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPTableViewController.m; sourceTree = "<group>"; };
 		8D87AAAA1BD48033000F4FA4 /* SPPTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPTableViewCell.h; sourceTree = "<group>"; };
 		8D87AAAB1BD48033000F4FA4 /* SPPTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPTableViewCell.m; sourceTree = "<group>"; };
+		8D92B7281BDEBCFF00167F7F /* UIImage+SPPPlaceholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SPPPlaceholder.h"; sourceTree = "<group>"; };
+		8D92B7291BDEBCFF00167F7F /* UIImage+SPPPlaceholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SPPPlaceholder.m"; sourceTree = "<group>"; };
+		8D9F1B3B1BDE3C9300ABDF17 /* NSDictionary+SPPFetchTokenFromUserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+SPPFetchTokenFromUserData.h"; sourceTree = "<group>"; };
+		8D9F1B3C1BDE3C9300ABDF17 /* NSDictionary+SPPFetchTokenFromUserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+SPPFetchTokenFromUserData.m"; sourceTree = "<group>"; };
+		8D9F1B3E1BDE48E000ABDF17 /* NSString+SPPFetchVerifierFromRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SPPFetchVerifierFromRequest.h"; sourceTree = "<group>"; };
+		8D9F1B3F1BDE48E000ABDF17 /* NSString+SPPFetchVerifierFromRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SPPFetchVerifierFromRequest.m"; sourceTree = "<group>"; };
+		8D9F1B411BDE4E9B00ABDF17 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		8D9FF3091BDE6B7D00639B81 /* NSDateFormatter+SPPMyDateFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+SPPMyDateFormat.h"; sourceTree = "<group>"; };
+		8D9FF30A1BDE6B7D00639B81 /* NSDateFormatter+SPPMyDateFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+SPPMyDateFormat.m"; sourceTree = "<group>"; };
 		8DA985F51BCEA18C00CD5EA4 /* SteamPunkPostsViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SteamPunkPostsViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DA985F81BCEA18C00CD5EA4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8DA985FA1BCEA18C00CD5EA4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -105,6 +114,8 @@
 		8DAA04DC1BD8645A00731FAF /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		8DD615D91BD0105A0048A3A9 /* SPPLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPLoginViewController.h; sourceTree = "<group>"; };
 		8DD615DA1BD0105A0048A3A9 /* SPPLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPLoginViewController.m; sourceTree = "<group>"; };
+		8DE0E49A1BDE707800FF7C64 /* UIFont+SPPFontForMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+SPPFontForMessages.h"; sourceTree = "<group>"; };
+		8DE0E49B1BDE707800FF7C64 /* UIFont+SPPFontForMessages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+SPPFontForMessages.m"; sourceTree = "<group>"; };
 		F3E8BBBBAFECF5DCFB54A8DE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -157,6 +168,7 @@
 		8D4012051BD64E860000188A /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				8D4011F61BD5A5A50000188A /* SPPData.xcdatamodeld */,
 				8D0CED591BD3DA170014EFEF /* Models */,
 				8D40120A1BD650610000188A /* DataManager */,
 				8DAA04CA1BD6EAF700731FAF /* DataSource */,
@@ -230,8 +242,8 @@
 		8D4012121BD652320000188A /* LoginAPI */ = {
 			isa = PBXGroup;
 			children = (
-				8D40120D1BD651E70000188A /* SPPLoginAPI.h */,
-				8D40120E1BD651E70000188A /* SPPLoginAPI.m */,
+				8D40120D1BD651E70000188A /* SPPLoginAPIClient.h */,
+				8D40120E1BD651E70000188A /* SPPLoginAPIClient.m */,
 			);
 			name = LoginAPI;
 			sourceTree = "<group>";
@@ -239,8 +251,8 @@
 		8D4012191BD681A90000188A /* DataAPI */ = {
 			isa = PBXGroup;
 			children = (
-				8D4012161BD681A40000188A /* SPPDataAPI.h */,
-				8D4012171BD681A40000188A /* SPPDataAPI.m */,
+				8D4012161BD681A40000188A /* SPPDataAPIClient.h */,
+				8D4012171BD681A40000188A /* SPPDataAPIClient.m */,
 			);
 			name = DataAPI;
 			sourceTree = "<group>";
@@ -272,6 +284,15 @@
 				8DAA04D31BD7D85200731FAF /* CollectionCells */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		8D9FF30C1BDE6E9000639B81 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8D9F1B411BDE4E9B00ABDF17 /* Localizable.strings */,
+				8DAA04DC1BD8645A00731FAF /* placeholder.png */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		8DA985EC1BCEA18C00CD5EA4 = {
@@ -316,7 +337,7 @@
 				8D87AAA41BD45BFF000F4FA4 /* Controllers */,
 				8D4012051BD64E860000188A /* Data */,
 				8DA9860C1BCEA18C00CD5EA4 /* Main.storyboard */,
-				8DAA04DC1BD8645A00731FAF /* placeholder.png */,
+				8D9FF30C1BDE6E9000639B81 /* Resources */,
 				8DAA04CB1BD6FA3600731FAF /* Categories */,
 				8DA986011BCEA18C00CD5EA4 /* Supporting Files */,
 			);
@@ -331,7 +352,6 @@
 				8DA986081BCEA18C00CD5EA4 /* SteamPunkPostsViewer-Prefix.pch */,
 				8DA986031BCEA18C00CD5EA4 /* InfoPlist.strings */,
 				8DA986061BCEA18C00CD5EA4 /* main.m */,
-				8D4011F61BD5A5A50000188A /* SPPData.xcdatamodeld */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -366,10 +386,16 @@
 		8DAA04CB1BD6FA3600731FAF /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				8D4012131BD66D6F0000188A /* NSString+getVerifierFromRequest.h */,
-				8D4012141BD66D6F0000188A /* NSString+getVerifierFromRequest.m */,
-				8D4012211BD6E0990000188A /* NSDictionary+getToken.h */,
-				8D4012221BD6E0990000188A /* NSDictionary+getToken.m */,
+				8D9F1B3B1BDE3C9300ABDF17 /* NSDictionary+SPPFetchTokenFromUserData.h */,
+				8D9F1B3C1BDE3C9300ABDF17 /* NSDictionary+SPPFetchTokenFromUserData.m */,
+				8D9F1B3E1BDE48E000ABDF17 /* NSString+SPPFetchVerifierFromRequest.h */,
+				8D9F1B3F1BDE48E000ABDF17 /* NSString+SPPFetchVerifierFromRequest.m */,
+				8D9FF3091BDE6B7D00639B81 /* NSDateFormatter+SPPMyDateFormat.h */,
+				8D9FF30A1BDE6B7D00639B81 /* NSDateFormatter+SPPMyDateFormat.m */,
+				8DE0E49A1BDE707800FF7C64 /* UIFont+SPPFontForMessages.h */,
+				8DE0E49B1BDE707800FF7C64 /* UIFont+SPPFontForMessages.m */,
+				8D92B7281BDEBCFF00167F7F /* UIImage+SPPPlaceholder.h */,
+				8D92B7291BDEBCFF00167F7F /* UIImage+SPPPlaceholder.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -422,6 +448,7 @@
 				8DA985F21BCEA18C00CD5EA4 /* Frameworks */,
 				8DA985F31BCEA18C00CD5EA4 /* Resources */,
 				DED1FF38A6F18B2011A4DD56 /* Copy Pods Resources */,
+				7B3AA0F6D30259C1D0AC4FC9 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -489,6 +516,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D9F1B421BDE4E9B00ABDF17 /* Localizable.strings in Resources */,
 				8DA986191BCEA18D00CD5EA4 /* Images.xcassets in Resources */,
 				8DAA04DD1BD8645A00731FAF /* placeholder.png in Resources */,
 				8DA986051BCEA18C00CD5EA4 /* InfoPlist.strings in Resources */,
@@ -522,6 +550,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		7B3AA0F6D30259C1D0AC4FC9 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		DED1FF38A6F18B2011A4DD56 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -544,13 +587,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D9F1B401BDE48E000ABDF17 /* NSString+SPPFetchVerifierFromRequest.m in Sources */,
+				8DE0E49C1BDE707800FF7C64 /* UIFont+SPPFontForMessages.m in Sources */,
+				8D9F1B3D1BDE3C9300ABDF17 /* NSDictionary+SPPFetchTokenFromUserData.m in Sources */,
 				8DA9860B1BCEA18C00CD5EA4 /* SPPAppDelegate.m in Sources */,
 				8D87AAA31BD45BF0000F4FA4 /* SPPTableViewController.m in Sources */,
-				8D4012181BD681A40000188A /* SPPDataAPI.m in Sources */,
-				8D40120F1BD651E70000188A /* SPPLoginAPI.m in Sources */,
+				8D4012181BD681A40000188A /* SPPDataAPIClient.m in Sources */,
+				8D40120F1BD651E70000188A /* SPPLoginAPIClient.m in Sources */,
 				8D87AA9A1BD4519F000F4FA4 /* SPPDataManager.m in Sources */,
-				8D4012231BD6E0990000188A /* NSDictionary+getToken.m in Sources */,
-				8D4012151BD66D6F0000188A /* NSString+getVerifierFromRequest.m in Sources */,
 				8D87AAA01BD45BD5000F4FA4 /* SPPCollectionViewController.m in Sources */,
 				8D87AA971BD45127000F4FA4 /* SPPDataSource.m in Sources */,
 				8D40121F1BD6A09A0000188A /* SPPUserDataModel.m in Sources */,
@@ -561,6 +605,8 @@
 				8DAA04DA1BD7EBD900731FAF /* SPPContainerViewController.m in Sources */,
 				8DD615DB1BD0105A0048A3A9 /* SPPLoginViewController.m in Sources */,
 				8DAA04CE1BD71B8400731FAF /* SPPNextMaxID.m in Sources */,
+				8D9FF30B1BDE6B7D00639B81 /* NSDateFormatter+SPPMyDateFormat.m in Sources */,
+				8D92B72A1BDEBCFF00167F7F /* UIImage+SPPPlaceholder.m in Sources */,
 				8D87AAAC1BD48033000F4FA4 /* SPPTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -690,7 +736,27 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SteamPunkPostsViewer/SteamPunkPostsViewer-Prefix.pch";
 				INFOPLIST_FILE = "SteamPunkPostsViewer/SteamPunkPostsViewer-Info.plist";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"AFNetworking\"",
+					"-l\"MagicalRecord\"",
+					"-l\"SDWebImage\"",
+					"-framework",
+					"\"CoreData\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -704,7 +770,27 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SteamPunkPostsViewer/SteamPunkPostsViewer-Prefix.pch";
 				INFOPLIST_FILE = "SteamPunkPostsViewer/SteamPunkPostsViewer-Info.plist";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"AFNetworking\"",
+					"-l\"MagicalRecord\"",
+					"-l\"SDWebImage\"",
+					"-framework",
+					"\"CoreData\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

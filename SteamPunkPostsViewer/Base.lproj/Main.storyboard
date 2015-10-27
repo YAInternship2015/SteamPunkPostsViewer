@@ -153,7 +153,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="switcher:" destination="Eqg-6C-D5G" eventType="touchUpInside" id="Nrs-sG-rY3"/>
+                                    <action selector="switchViewController:" destination="Eqg-6C-D5G" eventType="touchUpInside" id="fBQ-tY-qJz"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -173,28 +173,28 @@
             <point key="canvasLocation" x="-171" y="-711"/>
         </scene>
         <!--Collection View Controller-->
-        <scene sceneID="j5M-Fs-6QU">
+        <scene sceneID="1OC-02-uhC">
             <objects>
-                <collectionViewController storyboardIdentifier="SPPCollectionViewController" autoresizesArchivedViewToFullSize="NO" id="S5V-Ee-t2v" customClass="SPPCollectionViewController" sceneMemberID="viewController">
-                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="6rk-uw-1nv">
+                <collectionViewController storyboardIdentifier="SPPCollectionViewController" autoresizesArchivedViewToFullSize="NO" id="ceO-xP-WSW" customClass="SPPCollectionViewController" sceneMemberID="viewController">
+                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="4B6-1x-c2F">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="1" id="Gnb-n4-XGx">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="1" id="n95-0X-AI3">
                             <size key="itemSize" width="106" height="130"/>
                             <size key="headerReferenceSize" width="0.0" height="45"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SPPCollectionCell" id="ueX-Nf-Eg9" customClass="SPPCollectionViewCell">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SPPCollectionCell" id="zEz-AK-Qot" customClass="SPPCollectionViewCell">
                                 <rect key="frame" x="0.0" y="45" width="106" height="130"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="106" height="130"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TmV-rN-YA7">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wAB-uC-0Id">
                                             <rect key="frame" x="0.0" y="0.0" width="106" height="130"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
@@ -202,29 +202,29 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="TmV-rN-YA7" firstAttribute="top" secondItem="ueX-Nf-Eg9" secondAttribute="top" id="8k4-dD-9wg"/>
-                                    <constraint firstAttribute="trailing" secondItem="TmV-rN-YA7" secondAttribute="trailing" id="TYr-Fo-QaR"/>
-                                    <constraint firstItem="TmV-rN-YA7" firstAttribute="leading" secondItem="ueX-Nf-Eg9" secondAttribute="leading" id="X1t-W0-riQ"/>
-                                    <constraint firstAttribute="bottom" secondItem="TmV-rN-YA7" secondAttribute="bottom" id="i8b-47-I1Q"/>
+                                    <constraint firstAttribute="trailing" secondItem="wAB-uC-0Id" secondAttribute="trailing" id="1tb-d1-0Hw"/>
+                                    <constraint firstItem="wAB-uC-0Id" firstAttribute="top" secondItem="zEz-AK-Qot" secondAttribute="top" id="LYE-jq-n9d"/>
+                                    <constraint firstItem="wAB-uC-0Id" firstAttribute="leading" secondItem="zEz-AK-Qot" secondAttribute="leading" id="fXe-Uh-YMW"/>
+                                    <constraint firstAttribute="bottom" secondItem="wAB-uC-0Id" secondAttribute="bottom" id="tBl-Dv-zaG"/>
                                 </constraints>
                                 <size key="customSize" width="106" height="130"/>
                                 <connections>
-                                    <outlet property="postImageView" destination="TmV-rN-YA7" id="l8Z-s5-8pw"/>
+                                    <outlet property="postImageView" destination="wAB-uC-0Id" id="2dk-HS-NzD"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="nill" id="rte-32-bwb">
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="nill" id="ZIw-Dm-YPN">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </collectionReusableView>
                         <connections>
-                            <outlet property="dataSource" destination="S5V-Ee-t2v" id="NoA-lz-OZQ"/>
-                            <outlet property="delegate" destination="S5V-Ee-t2v" id="As9-yL-kKt"/>
+                            <outlet property="dataSource" destination="ceO-xP-WSW" id="LRW-2d-Mk8"/>
+                            <outlet property="delegate" destination="ceO-xP-WSW" id="MhQ-G1-LuG"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="qkt-GP-PxA"/>
+                    <navigationItem key="navigationItem" id="4RH-Iv-Tgk"/>
                 </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="scB-Hh-8pX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lZ7-5v-Hre" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="20" y="-23"/>
         </scene>

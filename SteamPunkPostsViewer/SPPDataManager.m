@@ -12,13 +12,13 @@
 #import "SPPPostModel.h"
 #import "SPPNextMaxID.h"
 
-static NSString const *kData = @"data";
+static NSString *const kData = @"data";
 
 @implementation SPPDataManager
 
 #pragma mark Shared Manager
 
-+ (SPPDataManager*)sharedManager {
++ (SPPDataManager *)sharedManager {
     static SPPDataManager *manager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -27,33 +27,33 @@ static NSString const *kData = @"data";
     return manager;
 }
 
-#pragma mark  Request Posts From DataAPI
+#pragma mark  Request Posts From DataAPIClient
 
 - (void)loadRecentPosts {
-   SPPDataAPI *dataAPI = [SPPDataAPI new];
-    [dataAPI loadPosts:^(id responseObject) {
+   SPPDataAPIClient *dataAPIClient = [SPPDataAPIClient new];
+    [dataAPIClient haveUseMaxIDFromeCoreDataInRequest:NO andLoadPostsWithCompletionBlock:^(id responseObject) {
         __weak typeof(self) weakSelf = self;
         [weakSelf saveDownloadedPosts:responseObject];
-    } withNextMaxID:false];
+    }];
 }
 
 - (void)loadRecentPostsAndSetupNextMaxID {
-    SPPDataAPI *dataAPI = [SPPDataAPI new];
-    [dataAPI loadPosts:^(id responseObject) {
+    SPPDataAPIClient *dataAPIClient = [SPPDataAPIClient new];
+    [dataAPIClient haveUseMaxIDFromeCoreDataInRequest:NO andLoadPostsWithCompletionBlock:^(id responseObject) {
         __weak typeof(self) weakSelf = self;
         [weakSelf saveDownloadedPosts:responseObject];
         [weakSelf saveNextMaxID:responseObject];
-    } withNextMaxID:false];
+    }];
 }
 
 
 - (void)loadOldPosts {
-    SPPDataAPI *dataAPI = [SPPDataAPI new];
-    [dataAPI loadPosts:^(id responseObject) {
+    SPPDataAPIClient *dataAPIClient = [SPPDataAPIClient new];
+    [dataAPIClient haveUseMaxIDFromeCoreDataInRequest:YES andLoadPostsWithCompletionBlock:^(id responseObject) {
         __weak typeof(self) weakSelf = self;
         [weakSelf saveDownloadedPosts:responseObject];
         [weakSelf saveNextMaxID:responseObject];
-    } withNextMaxID:true];
+    }];
 }
 
 #pragma mark Save Methods
@@ -64,16 +64,16 @@ static NSString const *kData = @"data";
         [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext){
             SPPPostModel *newPostModel = nil;
             NSArray *existedPosts = [SPPPostModel MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@" postID==%@ ", loadedData[kData][postIndex][@"id"]]];
-            if ([existedPosts count]>0) {
-                newPostModel=existedPosts[0];
+            if ([existedPosts count] > 0) {
+                newPostModel = existedPosts[0];
             } else {
-                newPostModel=[SPPPostModel MR_createEntityInContext:localContext];
+                newPostModel = [SPPPostModel MR_createEntityInContext:localContext];
             }
             newPostModel.captionText = loadedData[kData][postIndex][@"caption"][@"text"];
             newPostModel.postID = loadedData[kData][postIndex][@"id"];
             newPostModel.username = loadedData[kData][postIndex][@"user"][@"username"];
             newPostModel.imageURL = loadedData[kData][postIndex][@"images"][@"standard_resolution"][@"url"];
-            
+           // NSLog(@"%@", newPostModel);
         }];
         postIndex++;
     }
@@ -82,18 +82,13 @@ static NSString const *kData = @"data";
 
 - (void)saveNextMaxID:(id)loadedData {
     SPPNextMaxID *updateMaxID = [SPPNextMaxID MR_findFirst];
-#warning строка updateMaxID.nextMaxID = loadedData[@"pagination"][@"next_max_id"]; дублируется дважды. Ее можно выполнить один раз после if-else
-    if (updateMaxID) {
-    updateMaxID.nextMaxID = loadedData[@"pagination"][@"next_max_id"];
-    } else {
+//#warning строка updateMaxID.nextMaxID = loadedData[@"pagination"][@"next_max_id"]; дублируется дважды. Ее можно выполнить один раз после if-else
+#warning Исправил
+    if (!updateMaxID) {
         updateMaxID = [SPPNextMaxID MR_createEntity];;
-        updateMaxID.nextMaxID =  loadedData[@"pagination"][@"next_max_id"];
     }
-    
+    updateMaxID.nextMaxID =  loadedData[@"pagination"][@"next_max_id"];
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 }
 
--(BOOL)isAnyDataLoaded{
-    return [SPPPostModel MR_hasAtLeastOneEntity];
-}
 @end

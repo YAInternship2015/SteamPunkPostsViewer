@@ -14,21 +14,20 @@ static NSString  * kPostIdKey= @"postID";
 
 @interface SPPDataSource ()
 
-@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
-@property (nonatomic, strong) SPPDataManager *dataManager;
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) SPPDataManager *dataManager;
 
 @end
 
 @implementation SPPDataSource
 
 #pragma mark - Initiate
-- (SPPDataSource *)initWithDelegate:(id <SPPModelsDataSourceDelegate>)delegate {
+- (SPPDataSource *)initWithDelegate:(id<SPPModelsDataSourceDelegate>)delegate {
     self = [self init];
     if (self) {
         self.delegate = delegate;
-    }    
+    }
     return self;
-    self.dataManager = [SPPDataManager sharedManager];
 }
 
 #pragma mark - FetchResultsController
@@ -37,30 +36,42 @@ static NSString  * kPostIdKey= @"postID";
     if (_fetchedResultsController != nil) {
         return _fetchedResultsController;
     }
-    
-    _fetchedResultsController = [SPPPostModel MR_fetchAllSortedBy: kPostIdKey ascending:NO withPredicate:nil groupBy:nil delegate:self];
+    _fetchedResultsController = [SPPPostModel MR_fetchAllSortedBy: kPostIdKey
+                                                        ascending:NO
+                                                    withPredicate:nil
+                                                          groupBy:nil
+                                                         delegate:self];
     return _fetchedResultsController;
 }
 
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
-atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
-newIndexPath:(NSIndexPath *)newIndexPath
-{
-#warning сюда надо добавить default'ный кейс
+                                                                atIndexPath:(NSIndexPath *)indexPath
+                                                              forChangeType:(NSFetchedResultsChangeType)type
+                                                               newIndexPath:(NSIndexPath *)newIndexPath {
+//#warning сюда надо добавить default'ный кейс
     switch(type) {
         case NSFetchedResultsChangeInsert:
             [self.delegate insertObjectAtIndexPath:newIndexPath];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            break;
+            
+        case NSFetchedResultsChangeUpdate:
+            [self.delegate dataWasChanged];
+            break;
+            
+        case NSFetchedResultsChangeMove:
             break;
     }
 }
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     [self.delegate dataWasChanged];
-    
 }
 
-- (NSInteger)numberOfPostsInSection:(NSInteger) section  {
+- (NSInteger)numberOfPostsInSection:(NSInteger)section {
     id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
     return [sectionInfo numberOfObjects];
 }
@@ -72,11 +83,21 @@ newIndexPath:(NSIndexPath *)newIndexPath
 #pragma mark - Request Posts Methods
 
 - (void)requestPostsToBottom {
-    [[SPPDataManager sharedManager] loadOldPosts];
+    bool user = [SPPUserDataModel MR_hasAtLeastOneEntity];
+    if (user) {
+        [[SPPDataManager sharedManager] loadOldPosts];
+    } else {
+        [self.delegate changeMessageLableForMessageThatSaysToLogin];
+    }
 }
 
 -(void)requestPostsToTop{
-    [[SPPDataManager sharedManager] loadRecentPosts];
+    bool user = [SPPUserDataModel MR_hasAtLeastOneEntity];
+    if (user) {
+        [[SPPDataManager sharedManager] loadRecentPosts];
+    } else {
+        [self.delegate changeMessageLableForMessageThatSaysToLogin];
+    }
 }
 
 @end

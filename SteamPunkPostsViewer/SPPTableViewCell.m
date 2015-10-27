@@ -8,20 +8,24 @@
 
 #import "SPPTableViewCell.h"
 #import "UIImageView+WebCache.h"
+#import "UIImage+SPPPlaceholder.h"
 
-#warning не нужно хранить в константах имя картинки, лучше написать категорию на UIImage и реализовать в ней метод placeholderImage
-static  NSString *kPlaceholderName = @"placeholder.png";
+
+//#warning не нужно хранить в константах имя картинки, лучше написать категорию на UIImage и реализовать в ней метод placeholderImage
+@interface SPPTableViewCell ()
+
+@property (strong, nonatomic) IBOutlet UIImageView *postImageView;
+@property (strong, nonatomic) IBOutlet UILabel *postCaptionText;
+@property (strong, nonatomic) IBOutlet UILabel *postUserName;
+
+@end
 
 @implementation SPPTableViewCell
 
-- (void)setupCell:(SPPPostModel *)postModel {
-
-    
+- (void)setupCell:(SPPPostModel *)postModel{
     self.postUserName.text = postModel.username;
     self.postCaptionText.text = postModel.captionText;
     [self.postImageView sd_setImageWithURL:[NSURL URLWithString:postModel.imageURL]
-                          placeholderImage:[UIImage imageNamed:kPlaceholderName]];
-
-    
+                          placeholderImage:[UIImage placeholderImage]];
 }
 @end

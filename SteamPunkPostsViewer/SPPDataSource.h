@@ -15,17 +15,19 @@
 
 @optional
 - (void)dataWasChanged;
+
 @required
 - (void)insertObjectAtIndexPath:(NSIndexPath *)newIndexPath;
+- (void)changeMessageLableForMessageThatSaysToLogin;
 
 @end
 
 @interface SPPDataSource : NSObject <NSFetchedResultsControllerDelegate>
 
-@property (nonatomic, strong) id<SPPModelsDataSourceDelegate>delegate;
+@property (strong, nonatomic) id<SPPModelsDataSourceDelegate>delegate;
 
-- (SPPDataSource*)initWithDelegate:(id<SPPModelsDataSourceDelegate>)delegate;
-- (SPPPostModel*)postAtIndex:(NSIndexPath*)indexPath;
+- (SPPDataSource *)initWithDelegate:(id<SPPModelsDataSourceDelegate>)delegate;
+- (SPPPostModel *)postAtIndex:(NSIndexPath *)indexPath;
 - (NSInteger)numberOfPostsInSection:(NSInteger)section;
 - (void)requestPostsToBottom;
 - (void)requestPostsToTop;

@@ -15,7 +15,6 @@ static NSString *kCDSName = @"SteamPunkPostsViewer";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
     [MagicalRecord setupCoreDataStackWithStoreNamed:kCDSName];
     return YES;
 }

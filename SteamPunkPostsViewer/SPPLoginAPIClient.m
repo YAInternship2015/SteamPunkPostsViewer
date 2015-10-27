@@ -1,12 +1,6 @@
-//
-//  SPPLoginAPI.m
-//  SteamPunkPostsViewer
-//
-//  Created by Elias Tihonkov on 20.10.15.
-//  Copyright (c) 2015 Tykhonkov Ilya. All rights reserved.
-//
 
-#import "SPPLoginAPI.h"
+
+#import "SPPLoginAPIClient.h"
 #import "AFNetworking.h"
 #import "SPPUserDataModel.h"
 #import "SPPDataManager.h"
@@ -20,14 +14,14 @@ static NSString *oauthRequestURL = @"https://api.instagram.com/oauth/authorize/?
 static NSString *kBaseURLWithOauthAndToken = @"https://api.instagram.com/oauth/access_token";
 static NSString *kUser = @"user";
 
-@implementation SPPLoginAPI
+@implementation SPPLoginAPIClient
 
 - (NSURLRequest*)oauthAuthorizeRequest {
     NSString *url = [NSString stringWithFormat:oauthRequestURL ,kClientID,callbackURL];
     return [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
 }
 
-- (void)requestUserDataWith:(NSString*)verifier{
+- (void)requestUserDataWithVerifier:(NSString*)verifier{
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"client_id" : kClientID,
@@ -37,8 +31,9 @@ static NSString *kUser = @"user";
                                  @"code" : verifier};
     [manager POST:kBaseURLWithOauthAndToken parameters:parameters                        success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%@", responseObject);
-#warning здесь нужен weakSelf
-        [self saveUserDataAndLoadFirstPackOfPosts:responseObject];
+//#warning здесь нужен weakSelf
+         __weak typeof(self) weakSelf = self;
+        [weakSelf saveUserDataAndLoadFirstPackOfPosts:responseObject];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
@@ -49,18 +44,18 @@ static NSString *kUser = @"user";
     [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext){
         NSArray *existedUsers = [SPPUserDataModel MR_findAllWithPredicate:
             [NSPredicate predicateWithFormat:@"accessToken == %@", userData[@"access_token"]]];
-#warning знаки "<", ">", "=" надо выделять пробелами с обоих сторон
-        if ([existedUsers count]>0) {
-            newUser=existedUsers[0];
+//#warning знаки "<", ">", "=" надо выделять пробелами с обоих сторон
+        if ([existedUsers count] > 0) {
+            newUser = existedUsers[0];
         } else {
             newUser=[SPPUserDataModel MR_createEntityInContext:localContext];
         }
-#warning выравнивание "поехало"
-            newUser.accessToken = userData[@"access_token"];
-            newUser.userID = userData[kUser][@"id"];
-            newUser.username = userData [kUser][@"username"];
-            newUser.fullName = userData [kUser][@"full_name"];
-            newUser.profilePicture = userData [kUser][@"profile_picture"];
+//#warning выравнивание "поехало"
+        newUser.accessToken = userData[@"access_token"];
+        newUser.userID = userData[kUser][@"id"];
+        newUser.username = userData [kUser][@"username"];
+        newUser.fullName = userData [kUser][@"full_name"];
+        newUser.profilePicture = userData [kUser][@"profile_picture"];
         
     }];
     [[SPPDataManager sharedManager] loadRecentPostsAndSetupNextMaxID];

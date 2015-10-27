@@ -11,20 +11,15 @@
 #import "SPPCollectionViewController.h"
 #import "SPPDataManager.h"
 
-#warning тексты надо перенести в Localizable.strings
-static NSString *kAllerMessage = @"First load some posts";
-static NSString *kAllertTitle = @"SteamPunkPostViewer";
-static NSString *kCancelButtonTitle = @"OK";
 
-
-
+//warning тексты надо перенести в Localizable.strings
 @interface SPPContainerViewController ()
 
 @property (strong, nonatomic) SPPTableViewController *tableView;
 @property (strong, nonatomic) SPPCollectionViewController *collectionView;
 @property (strong, nonatomic) IBOutlet UIView *containerView;
 
-- (IBAction)switcher:(id)sender;
+- (IBAction)switchViewController:(id)sender;
 
 @end
 
@@ -41,37 +36,23 @@ static NSString *kCancelButtonTitle = @"OK";
     [_containerView addSubview:self.tableView.view];
 }
 
-#warning плохое имя метода
-- (IBAction)switcher:(id)sender {
-    if ([[SPPDataManager sharedManager] isAnyDataLoaded]) {
-#warning fromViewController, toViewController
-    UIViewController *fromView, *toView;
+//#warning плохое имя метода
+- (IBAction)switchViewController:(id)sender {
+//#warning fromViewController, toViewController
+    UIViewController *fromViewController, *toViewController;
     if ([self.tableView.view isDescendantOfView: self.view])   {
-        fromView = self.tableView;
-        toView = self.collectionView;
+        fromViewController = self.tableView;
+        toViewController = self.collectionView;
     } else   {
-        fromView = self.collectionView;
-        toView = self.tableView;
+        fromViewController = self.collectionView;
+        toViewController = self.tableView;
     }
-    [self transitionFromViewController:fromView
-                      toViewController:toView
-                              duration:0.5
+    [self transitionFromViewController:fromViewController
+                      toViewController:toViewController
+                              duration:0.3
                                options:UIViewAnimationOptionTransitionCrossDissolve
                             animations:nil
                             completion:nil];
-#warning Сделал этот Aller как временную меру из за бага загрузки постов в пустом CollectionView, как разберусь в чем причина и устраню, уберу этот Aller.
-        } else {
-#warning конвертируем строку в строку
-        NSString *message = [NSString stringWithFormat:@"%@",kAllerMessage];
-        UIAlertView *alertView = [[UIAlertView alloc]
-                                  initWithTitle:kAllertTitle
-                                  message:message
-                                  delegate:nil
-                                  cancelButtonTitle:kCancelButtonTitle
-                                  otherButtonTitles:nil];
-        [alertView show];
-    }
-    
 }
 
 @end
