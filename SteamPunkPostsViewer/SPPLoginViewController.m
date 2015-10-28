@@ -52,7 +52,7 @@ static NSString *const kCallbackIdentifier = @"steampunkpostsviewer.com";
             [alertView show];
         }
         [webView removeFromSuperview];
-//#warning зачем преобразовывать NSString в NSString?
+        
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:NSLocalizedString(@"SteamPunkPostViewer", nil)
                                   message:NSLocalizedString(@"You are loggedd in", nil)

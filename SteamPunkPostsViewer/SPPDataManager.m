@@ -12,6 +12,7 @@
 #import "SPPPostModel.h"
 #import "SPPNextMaxID.h"
 
+
 static NSString *const kData = @"data";
 
 @implementation SPPDataManager
@@ -31,17 +32,16 @@ static NSString *const kData = @"data";
 
 - (void)loadRecentPosts {
    SPPDataAPIClient *dataAPIClient = [SPPDataAPIClient new];
-    [dataAPIClient haveUseMaxIDFromeCoreDataInRequest:NO andLoadPostsWithCompletionBlock:^(id responseObject) {
-#warning во всех следующих методах с блоками weakSelf должен быть объявлен перед блоком
-        __weak typeof(self) weakSelf = self;
+    __weak typeof(self) weakSelf = self;
+    [dataAPIClient loadPostsFirstPageWithCompletionBlock:^(id responseObject) {
         [weakSelf saveDownloadedPosts:responseObject];
     }];
 }
 
 - (void)loadRecentPostsAndSetupNextMaxID {
+    __weak typeof(self) weakSelf = self;
     SPPDataAPIClient *dataAPIClient = [SPPDataAPIClient new];
-    [dataAPIClient haveUseMaxIDFromeCoreDataInRequest:NO andLoadPostsWithCompletionBlock:^(id responseObject) {
-        __weak typeof(self) weakSelf = self;
+    [dataAPIClient loadPostsFirstPageWithCompletionBlock:^(id responseObject) {
         [weakSelf saveDownloadedPosts:responseObject];
         [weakSelf saveNextMaxID:responseObject];
     }];
@@ -50,8 +50,8 @@ static NSString *const kData = @"data";
 
 - (void)loadOldPosts {
     SPPDataAPIClient *dataAPIClient = [SPPDataAPIClient new];
-    [dataAPIClient haveUseMaxIDFromeCoreDataInRequest:YES andLoadPostsWithCompletionBlock:^(id responseObject) {
-        __weak typeof(self) weakSelf = self;
+    __weak typeof(self) weakSelf = self;
+    [dataAPIClient loadPostsNextPageWithCompletionBlock:^(id responseObject) {
         [weakSelf saveDownloadedPosts:responseObject];
         [weakSelf saveNextMaxID:responseObject];
     }];
@@ -74,17 +74,13 @@ static NSString *const kData = @"data";
             newPostModel.postID = loadedData[kData][postIndex][@"id"];
             newPostModel.username = loadedData[kData][postIndex][@"user"][@"username"];
             newPostModel.imageURL = loadedData[kData][postIndex][@"images"][@"standard_resolution"][@"url"];
-           // NSLog(@"%@", newPostModel);
         }];
         postIndex++;
     }
-
 }
 
 - (void)saveNextMaxID:(id)loadedData {
     SPPNextMaxID *updateMaxID = [SPPNextMaxID MR_findFirst];
-//#warning строка updateMaxID.nextMaxID = loadedData[@"pagination"][@"next_max_id"]; дублируется дважды. Ее можно выполнить один раз после if-else
-#warning Исправил
     if (!updateMaxID) {
         updateMaxID = [SPPNextMaxID MR_createEntity];;
     }

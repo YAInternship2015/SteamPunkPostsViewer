@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-//#warning здесь не нужен импорт ячейки
 #import "SPPDataSource.h"
 
 @interface SPPCollectionViewController : UICollectionViewController <UICollectionViewDataSource,

@@ -10,7 +10,6 @@
 #import "SPPPostModel.h"
 
 @interface SPPTableViewCell : UITableViewCell
-//#warning эти свойства не надо показывать в *.h, перенесите их в *.m
 
 - (void)setupCell:(SPPPostModel *)postModel;
 

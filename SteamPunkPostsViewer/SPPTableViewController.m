@@ -14,11 +14,7 @@
 
 
 static NSString *reuseCellIdentifier = @"SPPTableCell";
-//#warning текст надо перенести в Localizable.strings
-//#warning формат надо перенести в категорию NSDateFormatter, в которой будет создаваться форматтер с этим форматом
-//#warning имя шрифта и резмер надо перенести в категорию UIFont
-//#warning из имени не ясно, к чему относится эта константа
-#warning Создал две категории и перенес текст в Localizable.stringsLocalizable.strings, также преименовал константы и добавил  1 в константу
+
 static NSInteger const kNumberBeforeEndOfPostsToStartRequest = 1;
 static NSInteger const kMessageLableNumberOfLinesInText = 0;
 
@@ -37,7 +33,7 @@ static NSInteger const kMessageLableNumberOfLinesInText = 0;
 - (void)viewDidLoad{
     [super viewDidLoad];
    self.dataSource = [[SPPDataSource alloc] initWithDelegate:self];
-    [self setupAndAddRefreshControll];
+    [self setupRefreshControl];
     [self showMessageLabel];
  
 }
@@ -49,7 +45,6 @@ static NSInteger const kMessageLableNumberOfLinesInText = 0;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SPPTableViewCell *cell = [tableView  dequeueReusableCellWithIdentifier:reuseCellIdentifier forIndexPath:indexPath];
-    // method  for inserting content in cell
     [cell setupCell:[self.dataSource postAtIndex:indexPath]];
     return cell;
 }
@@ -92,9 +87,7 @@ static NSInteger const kMessageLableNumberOfLinesInText = 0;
     [self.dataSource requestPostsToTop];
 }
 
-//#warning плохое имя метода
-#warning достаточно просто setupRefreshControl
-- (void)setupAndAddRefreshControll {
+- (void)setupRefreshControl {
     self.refreshControl = [[UIRefreshControl alloc] init];
     self.refreshControl.backgroundColor = [UIColor purpleColor];
     self.refreshControl.tintColor = [UIColor whiteColor];

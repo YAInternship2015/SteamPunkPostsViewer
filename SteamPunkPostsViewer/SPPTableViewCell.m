@@ -11,7 +11,6 @@
 #import "UIImage+SPPPlaceholder.h"
 
 
-//#warning не нужно хранить в константах имя картинки, лучше написать категорию на UIImage и реализовать в ней метод placeholderImage
 @interface SPPTableViewCell ()
 
 @property (strong, nonatomic) IBOutlet UIImageView *postImageView;

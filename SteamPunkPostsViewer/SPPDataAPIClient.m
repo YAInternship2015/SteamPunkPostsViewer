@@ -8,7 +8,7 @@
 #import "SPPDataManager.h"
 #import "NSDictionary+SPPFetchTokenFromUserData.h"
 
-//#warning static NSString *const, и также pathString - плохое имя переменной, неясно, что это за строка
+
 static NSString *const pathStringForGettingPostsWithSteamPunkTag =  @"https://api.instagram.com/v1/tags/SteamPunk/media/recent";
 
 @implementation SPPDataAPIClient
@@ -22,21 +22,27 @@ static NSString *const pathStringForGettingPostsWithSteamPunkTag =  @"https://ap
     return manager;
 }
 
-- (void)haveUseMaxIDFromeCoreDataInRequest:(BOOL)boolIdentifier andLoadPostsWithCompletionBlock:(SPPDataAPIClientBlock)completion{
-    NSDictionary * parameters=nil;
-    if (boolIdentifier) {
-        parameters = [NSDictionary fetchTokenWithNextMaxTagID];
-    } else {
-        parameters= [NSDictionary fetchTokenFromUserData];
-    }
-//#warning поправьте выравнивание кода
+- (void)loadPostsFirstPageWithCompletionBlock:(SPPDataAPIClientBlock)completion {
+    NSDictionary *parameters = [NSDictionary fetchTokenFromUserData];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:pathStringForGettingPostsWithSteamPunkTag parameters:parameters
-                           success:^(AFHTTPRequestOperation *operation, id responseObject) {
-    completion(responseObject);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-    NSLog(@"Error: %@", error);
-    }];
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             completion(responseObject);
+         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             NSLog(@"Error: %@", error);
+         }];
+
+}
+
+- (void)loadPostsNextPageWithCompletionBlock:(SPPDataAPIClientBlock)completion {
+    NSDictionary *parameters = [NSDictionary fetchTokenWithNextMaxTagID];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:pathStringForGettingPostsWithSteamPunkTag parameters:parameters
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             completion(responseObject);
+         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             NSLog(@"Error: %@", error);
+         }];
 }
 
 @end

@@ -19,7 +19,4 @@ static NSString *kCDSName = @"SteamPunkPostsViewer";
     return YES;
 }
 
-
-
-							
 @end

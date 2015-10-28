@@ -21,8 +21,6 @@ static NSString *kAccessToken = @"access_token";
     if ([user count] > 0) {
         userModel = user[0];
     }
-#warning в этом месте приложение крешится, если юзер не залогинен
-#warning Добавил проверку проверку в SPPDataSource теперь он не вызовет метода загрузки сообщений если юзер не залогинен
     NSDictionary *token = @{kAccessToken:userModel.accessToken};
         return token;
 }

@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "SPPPostModel.h"
 
-//#warning здесь те же замечания, что и в SPPTableViewCell
 
 @interface SPPCollectionViewCell : UICollectionViewCell
 

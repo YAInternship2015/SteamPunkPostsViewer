@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-//#warning эти импорты нужны в *.m
+
 
 @interface SPPContainerViewController : UIViewController
 

@@ -13,15 +13,11 @@
 
 
 static NSString *reuseCellIdentifier = @"SPPCollectionCell";
-//warning формат в категорию NSDateFormatter
-//warning текст в Localizable.strings
 static NSInteger kLastCellToRequestNextPackOfPosts = 1;
 static NSInteger const kMessageLableNumberOfLinesInText = 0;
 
 @interface SPPCollectionViewController ()
 
-//#warning плохое имя свойства
-#warning Переименовал из  dataInstance в dataSource
 @property (strong, nonatomic) SPPDataSource *dataSource;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (strong, nonatomic)  UILabel *messageLabel;
@@ -29,16 +25,16 @@ static NSInteger const kMessageLableNumberOfLinesInText = 0;
 
 @implementation SPPCollectionViewController
 
-- (void)viewDidLoad{
+- (void)viewDidLoad {
     [super viewDidLoad];
     self.dataSource =[[SPPDataSource alloc] initWithDelegate:self];
-    [self setupAndAddRefreshControll];
+    [self setupRefreshControl];
     self.collectionView.alwaysBounceVertical = YES;
     [self showMessageLabel];
 
 }
 
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
 
@@ -63,9 +59,7 @@ static NSInteger const kMessageLableNumberOfLinesInText = 0;
 
 #pragma mark - SPPDataSourceDelegate Methods
 
--(void)insertObjectAtIndexPath:(NSIndexPath *)newIndexPath{
-//#warning в этом месте приложение крешится в режиме с collectionView, когда добавляются новые айтемы
-#warning теперь не крашиться
+-(void)insertObjectAtIndexPath:(NSIndexPath *)newIndexPath {
     [self.collectionView reloadData];
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -73,7 +67,7 @@ static NSInteger const kMessageLableNumberOfLinesInText = 0;
     });
 
 }
-- (void)changeMessageLableForMessageThatSaysToLogin{
+- (void)changeMessageLableForMessageThatSaysToLogin {
     _messageLabel.text = NSLocalizedString(@"Please Login First", nil);
     [self dataWasChanged];
 }
@@ -84,9 +78,7 @@ static NSInteger const kMessageLableNumberOfLinesInText = 0;
     [self.dataSource requestPostsToTop];
 }
 
-//#warning плохое имя метода
-#warning setupRefreshControl
-- (void)setupAndAddRefreshControll{
+- (void)setupRefreshControl {
     self.refreshControl = [[UIRefreshControl alloc] init];
     self.refreshControl.backgroundColor = [UIColor purpleColor];
     self.refreshControl.tintColor = [UIColor whiteColor];

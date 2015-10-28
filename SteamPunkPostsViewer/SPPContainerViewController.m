@@ -12,7 +12,6 @@
 #import "SPPDataManager.h"
 
 
-//warning тексты надо перенести в Localizable.strings
 @interface SPPContainerViewController ()
 
 @property (strong, nonatomic) SPPTableViewController *tableView;
@@ -36,9 +35,7 @@
     [_containerView addSubview:self.tableView.view];
 }
 
-//#warning плохое имя метода
 - (IBAction)switchViewController:(id)sender {
-//#warning fromViewController, toViewController
     UIViewController *fromViewController, *toViewController;
     if ([self.tableView.view isDescendantOfView: self.view])   {
         fromViewController = self.tableView;
